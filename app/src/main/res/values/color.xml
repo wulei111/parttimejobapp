@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="toolbarcolor">#fe4d00</color>
-    <color name="white">#ffffff</color>
-    <color name="moren">#b7b7b7</color>
+    <color name="buttoncolor">#F15B04</color>
+    <color name="moren">#747b80</color>
+    <color name="shenlan">#007CA5</color>
+    <color name="danlan">#24C4F6</color>
+    <color name="shenhong">#901212</color>
+    <color name="danhong">#D02A2A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="toolbarcolor">#FE4D00</color>
+    <color name="qianhui">#f4f4f4</color>
+    <color name="textcolor">#1a1a1a</color>
+    <color name="textcolors">#666666</color>
+    <color name="faxian1">#fc7032</color>
+    <color name="faxian0">#fff3cf</color>
 </resources>

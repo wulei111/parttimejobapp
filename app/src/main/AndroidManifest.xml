@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DiscoverActivity"
+            android:theme="@style/StopTitle">
+        </activity>
+        <activity android:name=".DetailsActivity"
+            android:theme="@style/StopTitle">
+        </activity>
     </application>
 
 </manifest>
