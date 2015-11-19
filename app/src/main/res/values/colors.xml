@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="buttoncolor">#F15B04</color>
+    <color name="moren">#747b80</color>
+    <color name="shenlan">#007CA5</color>
+    <color name="danlan">#24C4F6</color>
+    <color name="shenhong">#901212</color>
+    <color name="danhong">#D02A2A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="toolbarcolor">#FE4D00</color>
+    <color name="gray1">#b7b7b7</color>
+</resources>
