@@ -10,25 +10,36 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-
         </activity>
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:label="LoginActivity"
-            android:theme="@style/StopTitle">
+            android:theme="@style/StopTitle" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ValidateLoginActivity"
+        <activity
+            android:name=".ValidateLoginActivity"
             android:label="ValidateLoginActivity"
-            android:theme="@style/StopTitle">
-
+            android:theme="@style/StopTitle" >
         </activity>
-        <activity android:name=".RegisteredActivity"
+        <activity
+            android:name=".RegisteredActivity"
             android:label="RegisteredActivity"
+            android:theme="@style/StopTitle" >
+        </activity>
+        <activity
+            android:name=".ForgetPasswordActivity"
+            android:label="@string/title_activity_forgetpassword"
             android:theme="@style/StopTitle">
-
+        </activity>
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/StopTitle">
         </activity>
     </application>
 
