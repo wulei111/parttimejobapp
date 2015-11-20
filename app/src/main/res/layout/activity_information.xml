@@ -20,7 +20,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="我要发布"
+                    android:text="意见反馈"
                     android:textSize="22sp"
                     android:textColor="@color/white"
                     android:layout_centerVertical="true"
@@ -28,11 +28,13 @@
                     android:layout_alignParentStart="true" />
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:background="@null"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content"
                     android:onClick="back_menu"
                     android:id="@+id/toolbar_back_button"
-                    android:drawableLeft="@drawable/ic_top_bar_category"/>
+                    android:gravity="center"
+                    android:drawableRight="@drawable/fanhuis"/>
             </RelativeLayout>
         </LinearLayout>
     <LinearLayout
@@ -58,7 +60,8 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_weight="0.47"
+                android:layout_weight="0.20"
+                android:layout_marginTop="20dp"
                 android:layout_height="0dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,8 +70,9 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:hint="您的邮箱或qq"
+                    android:layout_margin="10dp"
                     android:background="#A7CBF0"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
             <LinearLayout
@@ -84,13 +88,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_width="fill_parent"
                     android:background="#A7CBF0"
+                    android:layout_marginTop="60dp"
                     android:layout_height="180dp" >
                     <EditText
                     android:layout_margin="5dp"
                     android:textColor="#0A3140"
                     android:layout_width="fill_parent"
                     android:background="@null"
-                    android:hint="10000元每天，管吃管住赠送奔驰车"
+                    android:hint="反馈赢大奖，有几率赠送奔驰车"
                     android:layout_height="wrap_content" />
                 </LinearLayout>
 

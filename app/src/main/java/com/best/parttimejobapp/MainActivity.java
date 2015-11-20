@@ -81,16 +81,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
             Toast.makeText(this,"我的足迹",Toast.LENGTH_SHORT).show();
         }
         else if(button_id==R.id.slide_fabu_button){
-            Toast.makeText(this,"我要发布",Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this,Activity_MyPublish.class);
-            startActivity(i);
-            this.finish();
+
         }
         else if(button_id==R.id.slide_shezhi_button){
             Toast.makeText(this,"我的设置",Toast.LENGTH_SHORT).show();
         }
         else if(button_id==R.id.slide_yijian_button){
             Toast.makeText(this,"意见反馈",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"我要发布",Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this,Activity_Information.class);
+            startActivity(i);
+            this.finish();
         }
         else if(button_id==R.id.slide_about_button){
             Toast.makeText(this,"关于我们",Toast.LENGTH_SHORT).show();
