@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.best.parttimejobapp.Activity_MyPublish">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:gravity="center_vertical"
+            android:background="@color/toolbarcolor"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <TextView android:id="@+id/toolbartitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="我要发布"
+                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:onClick="back_menu"
+                    android:id="@+id/toolbar_back_button"
+                    android:drawableLeft="@drawable/ic_top_bar_category"/>
+            </RelativeLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:hint="标题"
+                    android:layout_width="fill_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight="0.47"
+                android:layout_height="0dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="联系方式："
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:hint="您的邮箱或qq"
+                    android:background="#A7CBF0"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="0dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="备注："
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="fill_parent"
+                    android:background="#A7CBF0"
+                    android:layout_height="180dp" >
+                    <EditText
+                    android:layout_margin="5dp"
+                    android:textColor="#0A3140"
+                    android:layout_width="fill_parent"
+                    android:background="@null"
+                    android:hint="10000元每天，管吃管住赠送奔驰车"
+                    android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/anniu01"
+                    android:text="提 交"
+                    android:textColor="#fff"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="fill_parent" />
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
