@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.best.love_parttimejob_app.RegisteredActivity">
+    tools:context="com.best.parttimejobapp.UpdateUserActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -29,19 +29,26 @@
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:text="用户注册"
+                    android:text="修改资料"
                     android:gravity="center_vertical"
                     android:textSize="18sp"
-                    android:textColor="#fff"
-                    />
+                    android:textColor="#fff" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1.48"
                 android:gravity="center"
                 android:textColor="#fff"/>
-
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.35"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical"
+                />
         </LinearLayout>
         <!--toolbar-->
 
@@ -58,7 +65,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.5"
+                android:layout_weight="0.6"
                 android:orientation="vertical">
                 <!-- 间隔，用来隔开输入框-->
                 <TextView
@@ -67,7 +74,7 @@
                     android:layout_weight="0.7" />
                 <!-- 间隔，用来隔开输入框-->
 
-                <!-- 账号-->
+                <!-- 姓名-->
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
@@ -77,22 +84,17 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="@drawable/sousuokuang"
-                        android:hint="姓名"
-                        android:inputType="text"
-                        android:textSize="15sp"
-                        android:id="@+id/name"/>
+                        android:hint="请输入姓名"
+                        android:inputType="text"/>
                 </LinearLayout>
-                <!-- 账号-->
+                <!-- 姓名-->
 
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5"
-                    android:text="*为了方便联系您，请填写真实姓名"
-                    android:textColor="@color/red"/>
-
-
+                    android:layout_weight="0.3" />
+                <!-- 密码-->
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
@@ -102,21 +104,16 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="@drawable/sousuokuang"
-                        android:hint="手机号"
-                        android:inputType="number"
-                        android:textSize="15sp"
-                        android:id="@+id/phone"/>
+                        android:hint="请输入密码"
+                        android:inputType="text"/>
                 </LinearLayout>
+                <!-- 密码-->
 
-
-                <!-- 间隔，用来隔开输入框-->
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5" />
-                <!-- 间隔，用来隔开输入框-->
-
-
+                    android:layout_weight="0.3" />
+                <!-- 密码-->
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
@@ -126,84 +123,67 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="@drawable/sousuokuang"
-                        android:hint="密码"
-                        android:inputType="textPassword"
-                        android:textSize="15sp"
-                        android:id="@+id/pass"/>
+                        android:hint="请输入新密码"
+                        android:inputType="text"/>
                 </LinearLayout>
+                <!-- 密码-->
 
-                <!-- 间隔，用来隔开输入框-->
+
+
+
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5" />
-                <!-- 间隔，用来隔开输入框-->
+                    android:layout_weight="0.3" />
 
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@drawable/sousuokuang"
-                        android:hint="确认密码"
-                        android:inputType="textPassword"
-                        android:textSize="15sp"
-                        android:id="@+id/passw"/>
-                </LinearLayout>
-
-
-                <!-- 间隔，用来隔开输入框-->
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5" />
-                <!-- 间隔，用来隔开输入框-->
-
-                <!-- 验证码-->
+                <!-- 确认密码-->
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1">
-                    <EditText
+                    <RadioGroup
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1.5"
-                        android:background="@drawable/sousuokuang"
-                        android:hint="请输入验证码"
-                        android:inputType="text"
-                        android:textSize="15sp"
-                        android:id="@+id/yanzhengs"/>
-                    <!-- 发送验证码按钮-->
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="0.7"
-                        android:text="发送验证码"
-                        android:background="@drawable/anniu01"
-                        android:textColor="#fff"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="15sp"/>
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:text="男"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/man"
+                            android:checked="true"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:text="女"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/women"/>
+                    </RadioGroup>
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.3" />
 
                 <!-- 登录按钮-->
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.2"
-                    android:text="注    册"
+                    android:layout_weight="1.1"
+                    android:text="完    成"
                     android:textColor="@color/white"
                     android:background="@drawable/anniu01"
-                    android:textSize="17sp"
-                    android:onClick="zhuce"/>
+                    android:textSize="17sp"/>
 
             </LinearLayout>
             <!-- 主要内容-->
