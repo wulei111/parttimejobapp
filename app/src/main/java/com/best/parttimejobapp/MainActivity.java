@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //找到Toobar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
         //seeat = (RadioButton)findViewById(R.id.seeat);
         //  fenclass = (RadioButton) findViewById(R.id.fenclass);
         index = (RadioButton) findViewById(R.id.index);
