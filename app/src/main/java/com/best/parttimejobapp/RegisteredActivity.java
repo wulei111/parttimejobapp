@@ -14,6 +14,7 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 
+
 public class RegisteredActivity extends AppCompatActivity {
 
     public EditText username;
@@ -56,7 +57,7 @@ public class RegisteredActivity extends AppCompatActivity {
                     if(names.length()!=0){
                         if(names.length()>=2){
                             zhuces();
-                        }else{0
+                        }else{
                             Toast.makeText(this,"姓名必须两个字以上",Toast.LENGTH_LONG).show();
                         }
                     }else{

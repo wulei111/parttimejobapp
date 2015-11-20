@@ -19,35 +19,31 @@
             android:background="@color/toolbarcolor"
             android:gravity="center_vertical"
             android:paddingRight="15dp">
-            <ImageView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:layout_weight="0.2"
-                android:src="@drawable/fanhuis"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.8"
-                android:text="账户登录"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:textColor="#fff"/>
+                android:layout_weight="0.5">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/fanhuis"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="账户登录"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:textColor="#fff" />
+            </LinearLayout>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1.48"
                 android:gravity="center"
                 android:textColor="#fff"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.35"
-                android:text="注册"
-                android:textSize="18sp"
-                android:textColor="#fff"
-                android:gravity="center_vertical"
-                android:onClick="registere"
-                />
+
         </LinearLayout>
         <!--toolbar-->
 
@@ -136,12 +132,46 @@
 
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal">
 
-            </LinearLayout>
+             <LinearLayout
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentBottom="true"
+                 android:gravity="center_horizontal">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="注册账号"
+                     android:gravity="center_vertical"
+                     android:onClick="registere"
+                     android:layout_centerHorizontal="true"
+                     android:id="@+id/textView"
+                     />
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="fill_parent"
+                     android:text=" | "
+                     />
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="随便看看"
+                     android:id="@+id/textViewz"
+                     android:layout_gravity="bottom"
+                     android:gravity="center_horizontal"
+                     android:layout_alignParentBottom="true"
+                     android:layout_toRightOf="@+id/textView"
+                     android:layout_toEndOf="@+id/textView"
+                     android:onClick="look"
+                     />
+             </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
         <!-- body-->
