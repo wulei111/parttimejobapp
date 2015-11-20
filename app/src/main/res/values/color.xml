@@ -2,5 +2,6 @@
 <resources>
     <color name="toolbarcolor">#fe4d00</color>
     <color name="white">#ffffff</color>
+    <color name="toolbar_white">#99ffffff</color>
     <color name="moren">#b7b7b7</color>
 </resources>

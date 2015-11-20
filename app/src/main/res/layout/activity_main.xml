@@ -3,84 +3,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <!-- include:包含   包含这个文件 -->
+<com.best.parttimejobapp.SlideMenu
+    android:id="@+id/slide_menu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <!--侧边栏 -->
     <include
         android:id="@+id/toolbar"
-        layout="@layout/public_toolbar_layout"
+        layout="@layout/my_sidebar_linerlayout"
         />
-
-    <!-- 包含RadioButton -->
-    <RadioGroup
-        android:id="@+id/rg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        >
-        <!-- 首页-->
-        <RadioButton
-            android:id="@+id/index"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/activity_main_radio01"
-            android:checked="true"
-            android:text="首页"
-            android:button="@null"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:gravity="center"
-            android:textColor="@drawable/activity_main_radio01"
-            />
-        <!-- 分类-->
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/activity_main_radio02"
-            android:text="发现"
-            android:button="@null"
-            android:padding="10dp"
-            android:id="@+id/fenclass"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@drawable/activity_main_radio02"
-            />
-
-        <!-- 发现-->
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/seeat"
-            android:button="@null"
-            android:padding="10dp"
-            android:drawableTop="@drawable/activity_main_radio03"
-            android:text="搜索"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textColor="@drawable/activity_main_radio03"
-            />
-
-    </RadioGroup>
-
-    <TextView
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#aaa"
-        android:layout_above="@id/rg"/>
+        android:layout_height="fill_parent">
+        <!-- include:包含   包含这个文件 -->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/public_toolbar_layout"
+            />
 
-    <!--  盛放Fragment的父布局 -->
-    <FrameLayout
-        android:layout_below="@id/toolbar"
-        android:layout_above="@id/rg"
-        android:id="@+id/fragment_parent"
-        android:layout_width="fill_parent"
-        android:paddingBottom="1dp"
-        android:layout_height="wrap_content" >
-    </FrameLayout>
+        <!-- 包含RadioButton -->
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            >
+            <!-- 首页-->
+            <RadioButton
+                android:id="@+id/index"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/activity_main_radio01"
+                android:checked="true"
+                android:text="首页"
+                android:button="@null"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="@drawable/activity_main_radio01"
+                />
+            <!-- 分类-->
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/activity_main_radio02"
+                android:text="发现"
+                android:button="@null"
+                android:padding="10dp"
+                android:id="@+id/fenclass"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@drawable/activity_main_radio02"
+                />
 
+            <!-- 发现-->
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seeat"
+                android:button="@null"
+                android:padding="10dp"
+                android:drawableTop="@drawable/activity_main_radio03"
+                android:text="搜索"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@drawable/activity_main_radio03"
+                />
 
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#aaa"
+            android:layout_above="@id/rg"/>
+
+        <!--  盛放Fragment的父布局 -->
+        <FrameLayout
+            android:layout_below="@id/toolbar"
+            android:layout_above="@id/rg"
+            android:id="@+id/fragment_parent"
+            android:layout_width="fill_parent"
+            android:paddingBottom="1dp"
+            android:layout_height="wrap_content" >
+        </FrameLayout>
+    </RelativeLayout>
+</com.best.parttimejobapp.SlideMenu>
 
 </RelativeLayout>
 
