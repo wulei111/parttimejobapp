@@ -39,7 +39,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         radio2 = (RadioButton) findViewById(R.id.radio2);
 
         radio4 = (RadioButton) findViewById(R.id.radio4);
-        actionMainActivity01 = (ImageButton) findViewById(R.id.actionMainActivity01);
+        actionMainActivity01 = (ImageButton) findViewById(R.id.tiaoguo);
         actionMainActivity02 = (ImageButton) view4.findViewById(R.id.actionMainActivity02);
         actionMainActivity01.setOnClickListener(this);
         actionMainActivity02.setOnClickListener(this);
