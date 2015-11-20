@@ -20,19 +20,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.5">
-                <ImageView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/fanhuis"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:text="修改资料"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:textColor="#fff" />
+                    android:layout_weight="0.5"
+                    android:onClick="fanhui">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.2"
+                        android:src="@drawable/fanhuis"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="修改资料"
+                        android:gravity="center_vertical"
+                        android:textSize="18sp"
+                        android:textColor="#fff" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView

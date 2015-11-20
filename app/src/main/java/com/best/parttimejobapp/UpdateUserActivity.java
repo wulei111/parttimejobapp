@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class UpdateUserActivity extends AppCompatActivity {
 
@@ -33,5 +34,8 @@ public class UpdateUserActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void fanhui(View view){
+        this.finish();
     }
 }

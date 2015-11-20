@@ -16,6 +16,8 @@ import com.best.adapter.GuideAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobUser;
+
 public class GuideActivity extends AppCompatActivity implements View.OnClickListener{
     ViewPager viewPager;
     View view1,view2,view4;
@@ -81,8 +83,15 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(GuideActivity.this,MainActivity.class);
-        startActivity(intent);
+        BmobUser bmobUser = BmobUser.getCurrentUser(this);
+        if(bmobUser != null){
+            Intent intent = new Intent(GuideActivity.this,MainActivity.class);
+            startActivity(intent);
+        }else {
+
+            Intent intent = new Intent(GuideActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
         GuideActivity.this.finish();
     }
 }
