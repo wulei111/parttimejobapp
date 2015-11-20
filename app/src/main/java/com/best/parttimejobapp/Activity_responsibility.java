@@ -10,7 +10,7 @@ public class Activity_responsibility extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_responsibility);
+        setContentView(R.layout.activity_responsibility);
     }
 
     @Override

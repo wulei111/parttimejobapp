@@ -6,4 +6,6 @@
     <string name="title_activity_forgetpassword">ForgetpasswordActivity</string>
     <string name="title_activity_change_password">ChangePasswordActivity</string>
     <string name="title_activity_activity_responsibility">Activity_responsibility</string>
+    <string name="title_activity_activlty_about">Activlty_About</string>
+    <string name="title_activity_activity__set_up">Activity_SetUp</string>
 </resources>
