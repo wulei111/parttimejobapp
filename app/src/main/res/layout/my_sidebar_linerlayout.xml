@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aandroid="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:layout_width="240dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="20dp"></LinearLayout>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_weight="0.3"
+        android:orientation="horizontal"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_height="fill_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/c5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/touxiang" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FAAA39"
+                    android:layout_width="wrap_content"
+                    android:text="姓名："
+                    android:background="@drawable/sousuokuang"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FAAA39"
+                    android:layout_width="wrap_content"
+                    android:text="全蛋"
+                    android:layout_height="fill_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FC0364"
+                    android:layout_width="wrap_content"
+                    android:text="账号："
+                    android:background="@drawable/sousuokuang"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#FC0364"
+                    android:layout_width="wrap_content"
+                    android:text="1235888@qq.com"
+                    android:layout_height="fill_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#C643FA"
+                    android:layout_width="wrap_content"
+                    android:text="姓名："
+                    android:background="@drawable/sousuokuang"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="#C643FA"
+                    android:layout_width="wrap_content"
+                    android:text="唐马儒"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.15"
+        android:orientation="vertical"
+        android:layout_height="0dp">
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#fe4d00"/>
+        <RadioGroup
+            android:id="@+id/slide_radiogroup"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="fill_parent">
+
+            <RadioButton
+                android:id="@+id/slide_zhaopin_radiobutton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/activity_slide_button_style"
+                android:text="招 聘"
+                android:textColor="#3B0F05"
+                android:gravity="center"
+                android:button="@null"
+                android:layout_height="fill_parent" />
+
+            <RadioButton
+                android:id="@+id/slide_qiuzhi_radiobutton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:gravity="center"
+                android:textColor="#3B0F05"
+                android:text="求 职"
+                android:background="@drawable/activity_slide_button_style"
+                android:button="@null"
+                android:layout_height="fill_parent" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#fe4d00"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.3"
+        android:orientation="vertical"
+        android:background="#99ffffff"
+        android:layout_height="0dp">
+        <Button
+            android:id="@+id/slide_wode_button"
+            android:layout_marginLeft="15dp"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableLeft="@drawable/foot"
+            android:text="我 的 足 迹"
+            android:textColor="#3B0F05"
+            android:gravity="center_vertical"
+            android:layout_height="0dp">
+        </Button>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#fe4d00"/>
+        <Button
+            android:id="@+id/slide_fabu_button"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="我 要 发 布"
+            android:textColor="#3B0F05"
+            android:drawableLeft="@drawable/about"
+            android:background="@null"
+            android:layout_height="0dp">
+        </Button>
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#fe4d00"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.15"
+        android:orientation="vertical"
+        android:background="#99ffffff"
+        android:layout_height="0dp">
+        <Button
+        android:id="@+id/slide_shezhi_button"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+        android:textColor="#3B0F05"
+        android:drawableLeft="@drawable/shezhi"
+        android:text="设 置         " />
+
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#fe4d00"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="0.3"
+        android:background="#99ffffff"
+        android:orientation="vertical"
+        android:layout_height="0dp">
+        <Button
+            android:id="@+id/slide_yijian_button"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginLeft="15dp"
+            android:textColor="#3B0F05"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/yijian"
+            android:text="意 见 反 馈"
+            android:layout_height="0dp">
+        </Button>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#fe4d00"/>
+        <Button
+            android:id="@+id/slide_about_button"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:textColor="#3B0F05"
+            android:drawableLeft="@drawable/about"
+            android:text="关 于 我 们"
+            android:background="@null"
+            android:layout_height="0dp">
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_weight="0.1"
+        android:layout_height="0dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_weight="0.1"
+        android:layout_height="0dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_weight="0.1"
+        android:layout_height="0dp">
+    </LinearLayout>
+    <Button
+        android:id="@+id/slide_exit_button"
+        android:layout_width="fill_parent"
+        android:layout_weight="0.15"
+        android:background="#FF0000"
+        android:text=" 退 出"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:layout_height="0dp">
+    </Button>
+
+</LinearLayout>

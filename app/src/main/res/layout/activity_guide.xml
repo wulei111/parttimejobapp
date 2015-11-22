@@ -40,12 +40,12 @@
             />
 
     </RadioGroup>
-    <ImageButton android:id="@+id/actionMainActivity01"
+    <ImageButton android:id="@+id/tiaoguo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="20dp"
-        android:src="@drawable/actionmainactivity02"
+
+        android:src="@drawable/tiaoguo"
         android:background="@null"/>
 </RelativeLayout>
