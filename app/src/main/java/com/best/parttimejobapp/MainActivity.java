@@ -1,5 +1,6 @@
 package com.best.parttimejobapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
+    private SlideMenu slideMenu;
     //声明AMapLocationClient类对象
     public AMapLocationClient mLocationClient = null;
     //声明mLocationOption对象
@@ -34,7 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button toolbar_button = (Button) findViewById(R.id.toolbar_button);
+        slideMenu = (SlideMenu) findViewById(R.id.slide_menu);
+        toolbar_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (slideMenu.isMainScreenShowing()) {
+                    slideMenu.openMenu();
+                } else {
+                    slideMenu.closeMenu();
+                }
+            }
+        });
         //找到Toobar
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
@@ -174,5 +188,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         ftt.commit();
+    }
+    public void slide_about_button(View v){
+        Intent i = new Intent(this,Activity_About.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_yijian_button(View v){
+        Intent i = new Intent(this,Activity_Information.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_setup_button(View v){
+        Intent i = new Intent(this,Activity_SetUp.class);
+        startActivity(i);
+        this.finish();
     }
 }
