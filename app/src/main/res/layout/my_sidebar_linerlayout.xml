@@ -30,7 +30,6 @@
                 android:layout_alignParentEnd="true"
                 android:id="@+id/touxiang" />
         </RelativeLayout>
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -238,9 +237,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
+            android:onClick="slide_setup_button"
             android:background="@null"
             android:layout_marginLeft="15dp"
-            android:onClick="slide_setup_button"
             android:textColor="#3B0F05"
             android:drawableLeft="@drawable/shezhi"
             android:text="设 置         " />
@@ -263,7 +262,7 @@
             android:background="@null"
             android:layout_marginLeft="15dp"
             android:textColor="#3B0F05"
-            android:onClick="slide_information_button"
+            android:onClick="slide_yijian_button"
             android:gravity="center_vertical"
             android:drawableLeft="@drawable/yijian"
             android:text="意 见 反 馈"
@@ -277,9 +276,9 @@
             android:id="@+id/slide_about_button"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:onClick="slide_about_button"
             android:layout_marginLeft="15dp"
             android:gravity="center_vertical"
+            android:onClick="slide_about_button"
             android:textColor="#3B0F05"
             android:drawableLeft="@drawable/about"
             android:text="关 于 我 们"

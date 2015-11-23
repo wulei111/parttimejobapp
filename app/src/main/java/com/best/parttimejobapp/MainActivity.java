@@ -3,6 +3,7 @@ package com.best.parttimejobapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,12 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
+    private SlideMenu slideMenu;
     //声明AMapLocationClient类对象
     public AMapLocationClient mLocationClient = null;
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
 //设置是否返回地址信息（默认返回地址信息）
-    private SlideMenu slideMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+        //找到Toobar
+       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
+        //seeat = (RadioButton)findViewById(R.id.seeat);
+        //  fenclass = (RadioButton) findViewById(R.id.fenclass);
         index = (RadioButton) findViewById(R.id.index);
         /**
          * 定位
@@ -125,21 +132,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ftt.commit();
         }
     }
-    public void slide_setup_button(View v){
-        Intent i = new Intent(MainActivity.this,Activity_SetUp.class);
-        startActivity(i);
-        this.finish();
-    }
-    public void slide_information_button(View v){
-        Intent i = new Intent(MainActivity.this,Activity_Information.class);
-        startActivity(i);
-        this.finish();
-    }
-    public void slide_about_button(View v){
-        Intent i = new Intent(MainActivity.this,Activity_About.class);
-        startActivity(i);
-        this.finish();
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -196,5 +188,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         ftt.commit();
+    }
+    public void slide_about_button(View v){
+        Intent i = new Intent(this,Activity_About.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_yijian_button(View v){
+        Intent i = new Intent(this,Activity_Information.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_setup_button(View v){
+        Intent i = new Intent(this,Activity_SetUp.class);
+        startActivity(i);
+        this.finish();
     }
 }
