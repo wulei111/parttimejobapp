@@ -20,7 +20,15 @@
             android:id="@+id/toolbar"
             layout="@layout/public_toolbar_layout"
             />
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="64656"
+    android:id="@+id/address"
+    android:textColor="#ffffff"
+    android:layout_alignParentRight="true"
+    android:layout_marginTop="18dp"
+    android:layout_marginRight="30dp"/>
         <!-- 包含RadioButton -->
         <RadioGroup
             android:id="@+id/rg"
