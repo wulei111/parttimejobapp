@@ -3,10 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_start">StartActivity</string>
-    <string name="title_activity_guide">GuideActivity</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_dingwei">DingweiActivity</string>
+    <string name="title_activity_forgetpassword">ForgetpasswordActivity</string>
+    <string name="title_activity_change_password">ChangePasswordActivity</string>
+    <string name="title_activity_activity_responsibility">Activity_responsibility</string>
+    <string name="title_activity_activlty_about">Activlty_About</string>
+    <string name="title_activity_activity__set_up">Activity_SetUp</string>
 </resources>
