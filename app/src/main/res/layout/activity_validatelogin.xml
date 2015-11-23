@@ -84,8 +84,9 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="@drawable/sousuokuang"
-                        android:hint="手机号/邮箱"
-                        android:inputType="text"/>
+                        android:hint="手机号"
+                        android:inputType="text"
+                        android:id="@+id/phonenum"/>
                 </LinearLayout>
                 <!-- 账号-->
 
@@ -103,19 +104,22 @@
                     <EditText
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1.5"
+                        android:layout_weight="1.2"
                         android:background="@drawable/sousuokuang"
                         android:hint="请输入验证码"
-                        android:inputType="text"/>
+                        android:inputType="text"
+                        android:id="@+id/yanzhengs"/>
                     <!-- 发送验证码按钮-->
                     <Button
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="0.5"
+                        android:layout_weight="0.8"
                         android:text="发送验证码"
                         android:background="@drawable/anniu01"
                         android:textColor="#fff"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:onClick="fasong"
+                        android:id="@+id/anniu"/>
                 </LinearLayout>
 
                 <TextView
@@ -131,7 +135,9 @@
                     android:text="登   录"
                     android:textColor="@color/white"
                     android:background="@drawable/anniu01"
-                    android:textSize="17sp"/>
+                    android:textSize="17sp"
+                    android:onClick="denglu"
+                    />
 
             </LinearLayout>
             <!-- 主要内容-->
