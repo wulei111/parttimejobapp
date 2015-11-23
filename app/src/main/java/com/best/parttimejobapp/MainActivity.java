@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -136,6 +137,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void registeres(View view){
         Intent intent = new Intent(MainActivity.this,RegisteredActivity.class);
+        startActivity(intent);
+    }
+//    退出登录
+    public void tuichu(View view){
+        BmobUser.logOut(this);   //清除缓存用户对象
+        BmobUser currentUser = BmobUser.getCurrentUser(this); // 现在的currentUser是null了
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 }

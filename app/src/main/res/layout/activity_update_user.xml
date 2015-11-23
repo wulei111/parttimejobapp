@@ -91,7 +91,8 @@
                         android:layout_height="fill_parent"
                         android:background="@drawable/sousuokuang"
                         android:hint="请输入姓名"
-                        android:inputType="text"/>
+                        android:inputType="text"
+                        android:id="@+id/name" />
                 </LinearLayout>
                 <!-- 姓名-->
 

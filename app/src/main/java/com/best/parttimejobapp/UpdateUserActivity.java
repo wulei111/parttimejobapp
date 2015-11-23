@@ -2,16 +2,26 @@ package com.best.parttimejobapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+
+import cn.bmob.v3.BmobUser;
 
 public class UpdateUserActivity extends AppCompatActivity {
 
+    String username;
+    EditText names;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_user);
+        BmobUser bu = new BmobUser();
+        username = bu.getUsername();
+        names = (EditText) findViewById(R.id.name);
+        Log.i("asd",username);
     }
 
     @Override
