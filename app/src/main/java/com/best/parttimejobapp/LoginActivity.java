@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                     chenggong();
                 }else{
                     shibai();
+                    Log.i("asd",e+"");
                 }
             }
         } );
