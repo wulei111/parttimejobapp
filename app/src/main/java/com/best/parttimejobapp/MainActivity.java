@@ -1,11 +1,13 @@
 package com.best.parttimejobapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -28,17 +30,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
 //设置是否返回地址信息（默认返回地址信息）
-
+    private SlideMenu slideMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //找到Toobar
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
-        //seeat = (RadioButton)findViewById(R.id.seeat);
-        //  fenclass = (RadioButton) findViewById(R.id.fenclass);
+        Button toolbar_button = (Button) findViewById(R.id.toolbar_button);
+        slideMenu = (SlideMenu) findViewById(R.id.slide_menu);
+        toolbar_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (slideMenu.isMainScreenShowing()) {
+                    slideMenu.openMenu();
+                } else {
+                    slideMenu.closeMenu();
+                }
+            }
+        });
         index = (RadioButton) findViewById(R.id.index);
         /**
          * 定位
@@ -116,6 +124,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ftt.add(R.id.fragment_parent, inf, "index");
             ftt.commit();
         }
+    }
+    public void slide_setup_button(View v){
+        Intent i = new Intent(MainActivity.this,Activity_SetUp.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_information_button(View v){
+        Intent i = new Intent(MainActivity.this,Activity_Information.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_about_button(View v){
+        Intent i = new Intent(MainActivity.this,Activity_About.class);
+        startActivity(i);
+        this.finish();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
