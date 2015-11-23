@@ -1,5 +1,6 @@
 package com.best.parttimejobapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,11 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.content.Intent;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -22,16 +21,12 @@ import com.best.fragment.IndexFragment;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import cn.bmob.v3.BmobUser;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
-    LinearLayout xinxis;
-    LinearLayout denglu;
-    ImageView touxiangs;
+    private SlideMenu slideMenu;
     //声明AMapLocationClient类对象
     public AMapLocationClient mLocationClient = null;
     //声明mLocationOption对象
@@ -42,30 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        xinxis = (LinearLayout) findViewById(R.id.xinxi);
-        denglu = (LinearLayout) findViewById(R.id.denglu);
-        touxiangs = (ImageView) findViewById(R.id.touxiang);
-
-
-        //        判断是否登录
-        BmobUser bmobUser = BmobUser.getCurrentUser(this);
-        if(bmobUser != null){
-            denglu.setVisibility(View.GONE);
-        }else {
-
-            xinxis.setVisibility(View.GONE);
-        }
-
-//        头像点击事件  进入个人资料
-
-        touxiangs.setOnClickListener(new View.OnClickListener() {
+        Button toolbar_button = (Button) findViewById(R.id.toolbar_button);
+        slideMenu = (SlideMenu) findViewById(R.id.slide_menu);
+        toolbar_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ints = new Intent(MainActivity.this, UpdateUserActivity.class);
-                startActivity(ints);
+                if (slideMenu.isMainScreenShowing()) {
+                    slideMenu.openMenu();
+                } else {
+                    slideMenu.closeMenu();
+                }
             }
         });
-
         //找到Toobar
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
@@ -198,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (fm.findFragmentByTag("seeat")!=null){
                 ftt.show(fm.findFragmentByTag("seeat"));
             }else{
-                //    SeeAtFragment af = new SeeAtFragment();
+            //    SeeAtFragment af = new SeeAtFragment();
                 //add(父布局ID，Fragment，Tag);
             //    ftt.add(R.id.fragment_parent,af,"seeat");
             }
@@ -206,25 +189,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ftt.commit();
     }
-
-    //    点击登录
-    public void logins(View view){
-        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-        startActivity(intent);
+    public void slide_about_button(View v){
+        Intent i = new Intent(this,Activity_About.class);
+        startActivity(i);
+        this.finish();
     }
-
-//    点击注册
-
-    public void registeres(View view){
-        Intent intent = new Intent(MainActivity.this,RegisteredActivity.class);
-        startActivity(intent);
+    public void slide_yijian_button(View v){
+        Intent i = new Intent(this,Activity_Information.class);
+        startActivity(i);
+        this.finish();
     }
-
-    //    退出登录
-    public void tuichu(View view){
-        BmobUser.logOut(this);   //清除缓存用户对象
-        BmobUser currentUser = BmobUser.getCurrentUser(this); // 现在的currentUser是null了
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+    public void slide_setup_button(View v){
+        Intent i = new Intent(this,Activity_SetUp.class);
+        startActivity(i);
+        this.finish();
     }
 }
