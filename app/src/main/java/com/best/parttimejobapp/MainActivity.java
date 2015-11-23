@@ -1,25 +1,54 @@
 package com.best.parttimejobapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.best.fragment.IndexFragment;
 
+import cn.bmob.v3.BmobUser;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
+    LinearLayout xinxis;
+    LinearLayout denglu;
+    ImageView touxiangs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        xinxis = (LinearLayout) findViewById(R.id.xinxi);
+        denglu = (LinearLayout) findViewById(R.id.denglu);
+        touxiangs = (ImageView) findViewById(R.id.touxiang);
+
+//        判断是否登录
+        BmobUser bmobUser = BmobUser.getCurrentUser(this);
+        if(bmobUser != null){
+            denglu.setVisibility(View.GONE);
+        }else {
+
+            xinxis.setVisibility(View.GONE);
+        }
+
+//        头像点击事件  进入个人资料
+
+        touxiangs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ints = new Intent(MainActivity.this,UpdateUserActivity.class);
+                startActivity(ints);
+            }
+        });
 
         //找到Toobar
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -95,5 +124,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         ftt.commit();
+    }
+
+//    点击登录
+    public void logins(View view){
+        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+//    点击注册
+
+    public void registeres(View view){
+        Intent intent = new Intent(MainActivity.this,RegisteredActivity.class);
+        startActivity(intent);
     }
 }
