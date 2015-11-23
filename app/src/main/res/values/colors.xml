@@ -11,4 +11,8 @@
     <color name="gray1">#b7b7b7</color>
     <color name="blue">#17b4eb</color>
     <color name="red">#ff0000</color>
+    <color name="toolbar_white">#99ffffff</color>
+    <color name="yellow_f">#ff9000</color>
+    <color name="blue_f">#0033ff</color>
+    <color name="gray2">#aaf</color>
 </resources>
