@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -76,11 +75,15 @@ public class Activity_SetUp extends AppCompatActivity {
         ImageButton night = (ImageButton) findViewById(R.id.setup_nightstyle_button);
         if(night_condition%2==1){
             night.setImageResource(R.drawable.no);
-            Log.i("opensss","sss"+night_condition);
+            Intent i = new Intent(this,MainActivity.class);
+            i.putExtra("background_style", "during");
+            startActivity(i);
         }
         else if(night_condition%2==0){
             night.setImageResource(R.drawable.off);
-            Log.i("opensss", "fff" + night_condition);
+            Intent i = new Intent(this,MainActivity.class);
+            i.putExtra("background_style", "night");
+            startActivity(i);
         }
     }
 
