@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aandroid="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
+    android:id="@+id/my_sildebar_lin_id"
     android:layout_width="240dp"
     android:orientation="vertical"
     android:layout_height="match_parent">
@@ -207,6 +208,7 @@
         android:gravity="center_vertical"
         android:background="@null"
         android:layout_marginLeft="15dp"
+        android:onClick="slide_setup_button"
         android:textColor="#3B0F05"
         android:drawableLeft="@drawable/shezhi"
         android:text="设 置         " />
@@ -232,6 +234,7 @@
             android:gravity="center_vertical"
             android:drawableLeft="@drawable/yijian"
             android:text="意 见 反 馈"
+            android:onClick="slide_yijian_button"
             android:layout_height="0dp">
         </Button>
         <View
@@ -239,6 +242,7 @@
             android:layout_height="1dp"
             android:background="#fe4d00"/>
         <Button
+            android:onClick="slide_about_button"
             android:id="@+id/slide_about_button"
             android:layout_width="fill_parent"
             android:layout_weight="1"
@@ -273,6 +277,7 @@
         android:background="#FF0000"
         android:text=" 退 出"
         android:gravity="center"
+        android:onClick="slide_exit_button"
         android:textColor="#fff"
         android:textSize="18sp"
         android:layout_height="0dp">

@@ -1,5 +1,6 @@
 package com.best.parttimejobapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,21 +14,19 @@ import com.best.fragment.IndexFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
+    String background_style = "night";
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //找到Toobar
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
         //seeat = (RadioButton)findViewById(R.id.seeat);
         //  fenclass = (RadioButton) findViewById(R.id.fenclass);
         index = (RadioButton) findViewById(R.id.index);
-//         seeat.setOnClickListener(this);
-     //   fenclass.setOnClickListener(this);
         index.setOnClickListener(this);
         fm = getSupportFragmentManager();
         if (savedInstanceState == null) {
@@ -37,6 +36,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ftt.add(R.id.fragment_parent, inf, "index");
             ftt.commit();
         }
+
+
+
+        //侧边栏button监听事件
+//        Button sildebar_shezhi_button = (Button) findViewById(R.id.slide_shezhi_button);
+//        sildebar_shezhi_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this,Activity_SetUp.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//
+//        Button yijian = (Button) findViewById(R.id.slide_yijian_button);
+//        yijian.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,6 +71,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_settings){
             return true;
         }return super.onOptionsItemSelected(item);
+    }
+
+
+    public void slide_about_button(View v){
+        Intent i = new Intent(this,Activity_About.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_yijian_button(View v){
+        Intent i = new Intent(this,Activity_Information.class);
+        startActivity(i);
+        this.finish();
+    }
+    public void slide_setup_button(View v){
+        Intent i = new Intent(this,Activity_SetUp.class);
+        startActivity(i);
+        this.finish();
     }
     @Override
     public void onClick(View v) {
@@ -79,17 +117,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (fm.findFragmentByTag("fenclass")!=null){
                 ftt.show(fm.findFragmentByTag("fenclass"));
             }else{
-              //  FenClassFragment af = new FenClassFragment();
+                //  FenClassFragment af = new FenClassFragment();
                 //add(父布局ID，Fragment，Tag);
-             //   ftt.add(R.id.fragment_parent, af, "fenclass");
+                //   ftt.add(R.id.fragment_parent, af, "fenclass");
             }
         }else if (id == R.id.seeat){
             if (fm.findFragmentByTag("seeat")!=null){
                 ftt.show(fm.findFragmentByTag("seeat"));
             }else{
-            //    SeeAtFragment af = new SeeAtFragment();
+                //    SeeAtFragment af = new SeeAtFragment();
                 //add(父布局ID，Fragment，Tag);
-            //    ftt.add(R.id.fragment_parent,af,"seeat");
+                //    ftt.add(R.id.fragment_parent,af,"seeat");
             }
         }
 

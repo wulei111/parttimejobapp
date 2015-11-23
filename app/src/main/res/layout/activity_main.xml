@@ -14,6 +14,7 @@
         />
     <RelativeLayout
         android:layout_width="fill_parent"
+        android:id="@+id/main_id_xml"
         android:layout_height="fill_parent">
         <!-- include:包含   包含这个文件 -->
         <include
