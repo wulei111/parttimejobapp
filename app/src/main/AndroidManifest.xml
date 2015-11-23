@@ -55,6 +55,12 @@
             android:theme="@style/StopTitle">
 
         </activity>
+        <activity android:name=".Activity_Information"
+            android:theme="@style/StopTitle"></activity>
+        <activity android:name=".Activity_SetUp"
+            android:theme="@style/StopTitle"></activity>
+        <activity android:name=".Activity_About"
+            android:theme="@style/StopTitle"></activity>
         <activity android:name=".LoginActivity"
             android:theme="@style/StopTitle"></activity>
         <activity android:name=".UpdateUserActivity"
