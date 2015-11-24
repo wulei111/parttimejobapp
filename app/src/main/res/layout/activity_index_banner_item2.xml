@@ -5,5 +5,5 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="120dp"
-        android:background="@drawable/banner2"/>
+        android:background="@drawable/banner4"/>
 </LinearLayout>
