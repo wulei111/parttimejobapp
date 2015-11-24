@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="buttoncolor">#F15B04</color>
     <color name="moren">#747b80</color>
     <color name="shenlan">#007CA5</color>
@@ -13,4 +14,12 @@
     <color name="textcolors">#666666</color>
     <color name="faxian1">#fc7032</color>
     <color name="faxian0">#fff3cf</color>
+=======
+    <color name="blue">#17b4eb</color>
+    <color name="toolbarcolor">#fe4d00</color>
+    <color name="white">#ffffff</color>
+    <color name="toolbar_white">#99ffffff</color>
+    <color name="moren">#b7b7b7</color>
+    <color name="red">#ff0000</color>
+>>>>>>> a0c1997c71512992ef4c77d9584ae026e585944b
 </resources>
