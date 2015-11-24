@@ -3,7 +3,6 @@ package com.best.parttimejobapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +22,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
+    String radioGroup_condition;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
@@ -130,6 +130,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             IndexFragment inf = new IndexFragment();
             ftt.add(R.id.fragment_parent, inf, "index");
             ftt.commit();
+        }
+    }
+    public void slide_zhaopin_radiobutton(View v){
+        Button zhuangtai = (Button) findViewById(R.id.slide_wode_button);
+        zhuangtai.setText("发 布 招 聘");
+        radioGroup_condition = "qiuzhi_condition";
+    }
+    public void slide_qiuzhi_radiobutton(View v){
+        Button zhuangtai = (Button) findViewById(R.id.slide_wode_button);
+        zhuangtai.setText("发 布 简 历");
+        radioGroup_condition = "zhaopin_condition";
+    }
+    public void slide_fabu_button(View v){
+        if("qiuzhi_condition".equals(radioGroup_condition)){
+
+        }
+        else if("zhaopin_condition".equals(radioGroup_condition)){
+
         }
     }
     @Override

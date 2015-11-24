@@ -79,7 +79,7 @@
                     android:padding="2dp"
                     android:textColor="#FC0364"
                     android:layout_width="wrap_content"
-                    android:text="1235888@qq.com"
+                    android:text=""
                     android:layout_height="fill_parent" />
             </LinearLayout>
 
@@ -96,7 +96,7 @@
                     android:padding="2dp"
                     android:textColor="#C643FA"
                     android:layout_width="wrap_content"
-                    android:text="姓名："
+                    android:text="等级："
                     android:background="@drawable/sousuokuang"
                     android:layout_height="wrap_content" />
                 <TextView
@@ -105,7 +105,7 @@
                     android:padding="2dp"
                     android:textColor="#C643FA"
                     android:layout_width="wrap_content"
-                    android:text="唐马儒"
+                    android:text="2"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
@@ -161,6 +161,7 @@
             <RadioButton
                 android:id="@+id/slide_zhaopin_radiobutton"
                 android:layout_width="0dp"
+                android:onClick="slide_zhaopin_radiobutton"
                 android:layout_weight="1"
                 android:background="@drawable/activity_slide_button_style"
                 android:text="招 聘"
@@ -171,6 +172,7 @@
 
             <RadioButton
                 android:id="@+id/slide_qiuzhi_radiobutton"
+                android:onClick="slide_qiuzhi_radiobutton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:checked="true"
@@ -198,9 +200,10 @@
             android:layout_marginLeft="15dp"
             android:layout_width="fill_parent"
             android:layout_weight="1"
+            android:onClick="slide_fabu_button"
             android:background="@null"
-            android:drawableLeft="@drawable/foot"
-            android:text="我 的 足 迹"
+            android:drawableLeft="@drawable/about"
+            android:text="我 要 发 布"
             android:textColor="#3B0F05"
             android:gravity="center_vertical"
             android:layout_height="0dp">
@@ -210,14 +213,14 @@
             android:layout_height="1dp"
             android:background="#fe4d00"/>
         <Button
-            android:id="@+id/slide_fabu_button"
+            android:id="@+id/slide_shoucang_button"
             android:layout_width="fill_parent"
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="我 要 发 布"
+            android:text="我 的 收 藏"
             android:textColor="#3B0F05"
-            android:drawableLeft="@drawable/about"
+            android:drawableLeft="@drawable/foot"
             android:background="@null"
             android:layout_height="0dp">
         </Button>
@@ -243,7 +246,6 @@
             android:textColor="#3B0F05"
             android:drawableLeft="@drawable/shezhi"
             android:text="设 置         " />
-
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
