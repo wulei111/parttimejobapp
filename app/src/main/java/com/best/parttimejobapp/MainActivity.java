@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -22,11 +24,16 @@ import com.best.fragment.SearchFragment;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import cn.bmob.v3.BmobUser;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
+    LinearLayout xinxis;
+    LinearLayout denglu;
+    ImageView touxiangs;
     private SlideMenu slideMenu;
     //声明AMapLocationClient类对象
     public AMapLocationClient mLocationClient = null;
@@ -38,6 +45,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        xinxis = (LinearLayout) findViewById(R.id.xinxi);
+        denglu = (LinearLayout) findViewById(R.id.denglu);
+        touxiangs = (ImageView) findViewById(R.id.touxiang);
+
+
+        //        判断是否登录
+        BmobUser bmobUser = BmobUser.getCurrentUser(this);
+        if(bmobUser != null){
+            denglu.setVisibility(View.GONE);
+        }else {
+
+            xinxis.setVisibility(View.GONE);
+        }
+
+//        头像点击事件  进入个人资料
+
+        touxiangs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ints = new Intent(MainActivity.this, UpdateUserActivity.class);
+                startActivity(ints);
+            }
+        });
         Button toolbar_button = (Button) findViewById(R.id.toolbar_button);
         slideMenu = (SlideMenu) findViewById(R.id.slide_menu);
         toolbar_button.setOnClickListener(new View.OnClickListener() {
@@ -201,5 +231,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i = new Intent(this,Activity_SetUp.class);
         startActivity(i);
         this.finish();
+    }
+    //    点击登录
+    public void logins(View view){
+        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+//    点击注册
+
+    public void registeres(View view){
+        Intent intent = new Intent(MainActivity.this,RegisteredActivity.class);
+        startActivity(intent);
+    }
+
+    //    退出登录
+    public void tuichu(View view){
+        BmobUser.logOut(this);   //清除缓存用户对象
+        BmobUser currentUser = BmobUser.getCurrentUser(this); // 现在的currentUser是null了
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

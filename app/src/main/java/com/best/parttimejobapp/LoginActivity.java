@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.best.bean.Myuser;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         denglu = (Button) findViewById(R.id.login );
         zhanghaos = (EditText) findViewById(R.id.zhanghao);
         mimas = (EditText) findViewById(R.id.mima);
+        Bmob.initialize(this, "e4472a3896b975ebe594e9669b07774d");
     }
 
 //    登录
