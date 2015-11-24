@@ -39,16 +39,16 @@ public class IndexFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
         bannerviewPager = (ViewPager) view.findViewById(R.id.bannerviewpagers);
-//优化banner
+        //优化banner
         bannerviewPager.setCurrentItem(Integer.MAX_VALUE / 2);//默认在中间，使用户看不到边界
         handler.sendEmptyMessageDelayed(ImageHandler.MSG_UPDATE_IMAGE, ImageHandler.MSG_DELAY);
         bannerview1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_index_banner_item1,null);
         bannerview2 = LayoutInflater.from(getContext()).inflate(R.layout.activity_index_banner_item2,null);
         bannerview3 = LayoutInflater.from(getContext()).inflate(R.layout.activity_index_banner_item3,null);
+        //将banner加入到集合中
         bannerviewList.add(bannerview1);
         bannerviewList.add(bannerview2);
         bannerviewList.add(bannerview3);
-//        banneradapter = new StepAdapter(getActivity(),bannerviewList);
         bannerviewPager.setAdapter(new MyViewPager());
         //找到布局中的gridView，传给gv
         gv = (GridView) view.findViewById(R.id.fenclassgridview);
@@ -60,8 +60,7 @@ public class IndexFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                //点击后看选的是哪一个
-                //Toast.makeText(this,position + "", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"你点击了"+position+"",Toast.LENGTH_LONG).show();
             }
         });
         return view;
@@ -107,19 +106,19 @@ public class IndexFragment extends Fragment {
                 convertView.setTag(g);
 
             }
-            g= (grid) convertView.getTag();
-            g.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            g.image.setPadding(8, 8, 8, 8);
-            g.image.setImageResource(images[position]);
-            g.text.setText(texts[position]);
-            return convertView;
+                g= (grid) convertView.getTag();
+                g.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                g.image.setPadding(8, 8, 8, 8);
+                g.image.setImageResource(images[position]);
+                g.text.setText(texts[position]);
+                return convertView;
         }
     }
     class grid{
         ImageView image;
         TextView text;
     }
-
+     //控制在scollView中添加listView 或 GridView 显示一行的问题
     public static void setListViewHeightBasedOnChildren(GridView listView) {
         if(listView == null) return;
 
@@ -168,12 +167,11 @@ public class IndexFragment extends Fragment {
             container.addView(v, 0);
             return v;
         }
-
     }
         /**
      * 下面是ViewPager的轮播效果
      */
-    private static class ImageHandler extends Handler {
+        private static class ImageHandler extends Handler {
 
         /**
          * 请求更新显示的View。
@@ -251,34 +249,10 @@ public class IndexFragment extends Fragment {
                      * */
                     currentItem = msg.arg1;
                     break;
-                default:
+                    default:
                     break;
             }
         }
     }
-  /*  public void fuzhi(){
-        //连接网络
-        Bmob.initialize(getContext(), "bad80c50ae4860438a828d63b0e96864");
-        final BmobQuery<Classify> bmobQuery = new BmobQuery<>();
-        bmobQuery.findObjects(getContext(), new FindListener<Classify>() {
-            @Override
-            public void onSuccess(List<Classify> list) {
-                classifyList1 = new ArrayList<Classify>();
-                for (Classify classify : list) {
-                    classifyList1.add(new Classify(classify.getClassify_name(), classify.getClassify_id()));
-                    //                    System.out.println("888888888888888888888888888888888888888888888888888");
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                Log.i("", "网络错误");
-                pd.dismiss();
-                Toast.makeText(getContext(), "网络错误", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
-
 }
 

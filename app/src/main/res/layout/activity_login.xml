@@ -111,7 +111,8 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="0.6"
                         android:text="忘记密码？"
-                        android:gravity="center_vertical"/>
+                        android:gravity="center_vertical"
+                        android:onClick="wangji"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
@@ -120,7 +121,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.8"
                         android:text="短信验证登录"
                         android:gravity="center_vertical"
                         android:onClick="duanxinlogin"
@@ -151,11 +152,13 @@
                      android:onClick="registere"
                      android:layout_centerHorizontal="true"
                      android:id="@+id/textView"
+                     android:textSize="18sp"
                      />
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="fill_parent"
                      android:text=" | "
+                     android:textSize="18sp"
                      />
                  <TextView
                      android:layout_width="wrap_content"
@@ -168,6 +171,7 @@
                      android:layout_toRightOf="@+id/textView"
                      android:layout_toEndOf="@+id/textView"
                      android:onClick="look"
+                     android:textSize="18sp"
                      />
              </LinearLayout>
 
