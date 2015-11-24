@@ -17,6 +17,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.best.fragment.IndexFragment;
+import com.best.fragment.SearchFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //找到Toobar
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbartitle = (TextView) toolbar.findViewById(R.id.toolbartitle);
-        //seeat = (RadioButton)findViewById(R.id.seeat);
+        seeat = (RadioButton)findViewById(R.id.seeat);
         //  fenclass = (RadioButton) findViewById(R.id.fenclass);
         index = (RadioButton) findViewById(R.id.index);
         /**
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLocationClient.setLocationOption(mLocationOption);
         //启动定位
         mLocationClient.startLocation();
-//         seeat.setOnClickListener(this);
+         seeat.setOnClickListener(this);
      //   fenclass.setOnClickListener(this);
         index.setOnClickListener(this);
         fm = getSupportFragmentManager();
@@ -154,9 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (fm.findFragmentByTag("fenclass")!= null){
             ftt.hide(fm.findFragmentByTag("fenclass"));
         }
-        if (fm.findFragmentByTag("index")!= null){
-            ftt.hide(fm.findFragmentByTag("index"));
-        }
         if (fm.findFragmentByTag("seeat")!= null){
             ftt.hide(fm.findFragmentByTag("seeat"));
         }
@@ -181,9 +179,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (fm.findFragmentByTag("seeat")!=null){
                 ftt.show(fm.findFragmentByTag("seeat"));
             }else{
-            //    SeeAtFragment af = new SeeAtFragment();
+                SearchFragment af = new SearchFragment();
                 //add(父布局ID，Fragment，Tag);
-            //    ftt.add(R.id.fragment_parent,af,"seeat");
+                ftt.add(R.id.fragment_parent,af,"seeat");
             }
         }
 

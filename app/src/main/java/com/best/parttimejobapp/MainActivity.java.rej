@@ -1,0 +1,8 @@
+diff a/app/src/main/java/com/best/parttimejobapp/MainActivity.java b/app/src/main/java/com/best/parttimejobapp/MainActivity.java	(rejected hunks)
+@@ -1,5 +1,6 @@
+ package com.best.parttimejobapp;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
+ import android.support.v7.app.AppCompatActivity;
+ import android.support.v7.widget.Toolbar;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.best.parttimejobapp" >
+    xmlns:title_activity_dingwei="http://schemas.android.com/apk/res-auto"
+    package="com.best.parttimejobapp">
 
     <!-- 用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -24,7 +25,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <service android:name="com.amap.api.location.APSService"></service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="9739aff5833533d719084bdd6cef3ec5" >
@@ -34,16 +34,6 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/StopTitle" >
-
-        </activity>
-        <activity
-            android:name=".StartActivity"
-            android:theme="@style/StopAll" >
-
-        </activity>
-        <activity
-            android:name=".GuideActivity"
-            android:theme="@style/StopAll">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,22 +41,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DingweiActivity"
-            android:theme="@style/StopTitle">
+            android:name=".StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/StopAll" >
 
         </activity>
-        <activity android:name=".Activity_Information"
-            android:theme="@style/StopTitle"></activity>
-        <activity android:name=".Activity_SetUp"
-            android:theme="@style/StopTitle"></activity>
-        <activity android:name=".Activity_About"
-            android:theme="@style/StopTitle"></activity>
-        <activity android:name=".LoginActivity"
-            android:theme="@style/StopTitle"></activity>
-        <activity android:name=".UpdateUserActivity"
-            android:theme="@style/StopTitle"></activity>
-        <activity android:name=".RegisteredActivity"
-            android:theme="@style/StopTitle"></activity>
+        <activity android:name=".GuideActivity"
+            android:label="@string/app_name"
+            android:theme="@style/StopAll">
+
+        </activity>
+        <activity android:name=".DingweiActivity"
+            android:label="@string/app_name"
+            android:theme="@style/StopAll">
+
+        </activity>
     </application>
 
 </manifest>
