@@ -81,6 +81,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void wangji(View v){
+        Intent intent = new Intent(this,ForgetPasswordActivity.class);
+        startActivity(intent);
+    }
+
 //    随便看看
 
     public void look(View view){

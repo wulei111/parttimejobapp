@@ -10,6 +10,15 @@ public class Myuser extends BmobUser{
     private String username;
     private String password;
     private String email;
+    private String user_qq;
+
+    public String getUser_qq() {
+        return user_qq;
+    }
+
+    public void setUser_qq(String user_qq) {
+        this.user_qq = user_qq;
+    }
 
     public String getUser_phone() {
         return user_phone;

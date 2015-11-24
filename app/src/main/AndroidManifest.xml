@@ -71,6 +71,11 @@
             android:theme="@style/StopTitle"></activity>
         <activity android:name=".ValidateLoginActivity"
             android:theme="@style/StopTitle"></activity>
+        <activity android:name=".ChangePasswordActivity"
+            android:theme="@style/StopTitle">
+        </activity>
+        <activity android:name=".ForgetPasswordActivity"
+            android:theme="@style/StopTitle"></activity>
     </application>
 
 </manifest>

@@ -106,7 +106,8 @@ public class ValidateLoginActivity extends AppCompatActivity {
     };
     //    发送验证码
     public void yanzheng(){
-        BmobSMS.requestSMSCode(this, "15163919792", "手机登录模板", new RequestSMSCodeListener() {
+        String shoujinum = phones.getText().toString();
+        BmobSMS.requestSMSCode(this, shoujinum, "手机登录模板", new RequestSMSCodeListener() {
 
             @Override
             public void done(Integer integer, BmobException e) {
