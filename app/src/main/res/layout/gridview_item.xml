@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Textview"
         android:id="@+id/gridview_text"
-       android:layout_gravity="center"
+        android:layout_gravity="center"
         android:singleLine="true"
         />
 </LinearLayout>
