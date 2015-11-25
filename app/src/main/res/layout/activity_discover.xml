@@ -12,12 +12,15 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:background="@color/faxian1">
-        <Button
+        <Button android:id="@+id/discovertimebut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="结算时间"
             android:padding="10dp"
             android:textSize="18sp"
+            android:ems="5"
+            android:lines="1"
+            android:ellipsize="end"
             android:background="@null"
             android:textColor="@color/faxian0"
             android:layout_weight="1"/>
@@ -28,11 +31,14 @@
             android:textSize="25sp"
             android:gravity="center_vertical"
             android:textColor="@color/faxian0"/>
-        <Button
+        <Button android:id="@+id/discoverclassifybut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="选择类型"
             android:textSize="18sp"
+            android:lines="1"
+            android:ems="5"
+            android:ellipsize="end"
             android:padding="10dp"
             android:background="@null"
             android:textColor="@color/faxian0"
@@ -44,17 +50,20 @@
             android:textSize="25sp"
             android:gravity="center_vertical"
             android:textColor="@color/faxian0"/>
-        <Button
+        <Button android:id="@+id/discoveraddressbut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="选择地区"
+            android:ems="5"
             android:textSize="18sp"
+            android:lines="1"
+            android:ellipsize="end"
             android:padding="10dp"
             android:background="@null"
             android:textColor="@color/faxian0"
             android:layout_weight="1"/>
     </LinearLayout>
-    <ListView
+    <ListView android:id="@+id/discoverlistview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/qianhui">

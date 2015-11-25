@@ -6,7 +6,7 @@
     tools:context=".MainActivity">
     <!-- toolbar -->
     <include android:id="@+id/details_toolbar"
-        layout="@layout/activity_details_toolbar"></include>
+        layout="@layout/activity_toolbar"></include>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent">
@@ -21,7 +21,7 @@
                 android:background="@color/white"
                 android:padding="15dp"
                 android:orientation="horizontal">
-                <TextView
+                <TextView android:id="@+id/detailstitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -51,7 +51,7 @@
                     android:text="地点："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsaddress"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -74,7 +74,7 @@
                     android:text="性别："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailssex"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -97,7 +97,7 @@
                     android:text="人数："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsnum"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -120,7 +120,7 @@
                     android:text="薪资："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsmoney"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,7 +144,7 @@
                     android:text="时间："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsdate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -167,7 +167,7 @@
                     android:text="联系方式："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsphone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -191,7 +191,7 @@
                     android:text="详细地址："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailscompyaddress"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -219,7 +219,7 @@
                     android:text="备注："
                     android:textColor="@color/textcolor"
                     android:textSize="18sp"/>
-                <TextView
+                <TextView android:id="@+id/detailsbeizhu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
