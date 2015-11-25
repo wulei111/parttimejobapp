@@ -1,0 +1,249 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qianhui"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <!-- toolbar -->
+    <include android:id="@+id/details_toolbar"
+        layout="@layout/activity_toolbars"></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <!-- 标题-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="15dp"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/detailstitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="加急 山东交院食品厂招收暑假工及长期工"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textSize="22sp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/liyi"/>
+            </LinearLayout>
+            <!-- 地点-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地点："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsaddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="山东临沂河东汤头观塘招收暑假工"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 性别-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="性别："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailssex"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="性别不限"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 人数-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人数："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsnum"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="10-20人"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 薪资-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="薪资："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsmoney"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100-200元/天"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 时间-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="时间："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2015-11-17到2015-11-17"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 联系方式-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系方式："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsphone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1234567890"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <!-- 详细地址-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="详细地址："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailscompyaddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="山东省临沂市河东区八湖镇王十二湖123号 海贼修船厂"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/didian"/>
+            </LinearLayout>
+            <!-- 备注-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="备注："
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp"/>
+                <TextView android:id="@+id/detailsbeizhu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="一大堆有的没的"
+                    android:textColor="@color/textcolors"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center">
+                <Button android:id="@+id/detailsbut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我要报名"
+                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:background="@drawable/details_submit"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -24,11 +24,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="64656"
+        android:text=""
         android:id="@+id/address"
         android:textColor="#ffffff"
         android:layout_alignParentRight="true"
         android:layout_marginTop="18dp"
+        android:onClick="dingwei"
         android:layout_marginRight="35dp"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="21dp"
             android:onClick="dingwei"
-            />
+            android:id="@+id/image" />
         <!-- 包含RadioButton -->
         <RadioGroup
             android:id="@+id/rg"
@@ -59,7 +60,7 @@
                 android:text="首页"
                 android:button="@null"
                 android:layout_weight="1"
-                android:padding="10dp"
+
                 android:gravity="center"
                 android:textColor="@drawable/activity_main_radio01"
                 />
@@ -70,7 +71,7 @@
                 android:drawableTop="@drawable/activity_main_radio02"
                 android:text="发现"
                 android:button="@null"
-                android:padding="10dp"
+
                 android:id="@+id/fenclass"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -83,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/seeat"
                 android:button="@null"
-                android:padding="10dp"
                 android:drawableTop="@drawable/activity_main_radio03"
                 android:text="搜索"
                 android:gravity="center"

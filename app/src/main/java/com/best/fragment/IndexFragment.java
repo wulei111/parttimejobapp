@@ -1,6 +1,7 @@
 package com.best.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -14,14 +15,28 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.best.adapter.IndexAdapter;
+import com.best.bean.Company;
+import com.best.bean.Invite;
+import com.best.parttimejobapp.DetailsActivity;
+import com.best.parttimejobapp.GuideActivity;
+import com.best.parttimejobapp.ListViewForScrollView;
 import com.best.parttimejobapp.R;
+import com.best.parttimejobapp.XiangqingActivity;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
+import droid.Activity01;
 
 /**
  * 创建时间：2015-11-19
@@ -31,13 +46,62 @@ import java.util.List;
  * */
 public class IndexFragment extends Fragment {
     public GridView gv;
+    ImageView image;
+    ListView listView;
+    TextView textView;
     ViewPager bannerviewPager;
+    //listview 的list01
+    List<Invite> inviteList = new ArrayList<>();
+    //listview 的list02
+    IndexAdapter indexAdapter;
+    List<Company> companyList = new ArrayList<>();
     View bannerview1,bannerview2,bannerview3,bannerview4;
     List<View> bannerviewList = new ArrayList<>();
     private ImageHandler handler = new ImageHandler(new WeakReference<IndexFragment>(this));
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
+        //listview
+        listView = (ListViewForScrollView) view.findViewById(R.id.index);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Invite invite = inviteList.get(position);
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("detailstitle", invite.getInvite_title());
+                intent.putExtra("detailsaddress", invite.getInvite_address());
+                intent.putExtra("detailssex", invite.getIncite_sex());
+                intent.putExtra("detailsnum", invite.getInvite_personNum());
+                intent.putExtra("detailsmoney", invite.getInvite_money());
+                intent.putExtra("detailsdate", invite.getIncite_days());
+//                System.out.println("shoujihaoma:"+invite.getInvite_phonenum());
+                intent.putExtra("detailsphone", invite.getInvite_phonenum().toString());
+                intent.putExtra("detailscompyaddress", invite.getInvite_addresss());
+                intent.putExtra("detailsbeizhu", invite.getInvite_context());
+//                System.out.println("createAt:"+invite.getCreateAt().getDate());
+                intent.putExtra("createAt", invite.getInvite_date());
+                startActivity(intent);
+            }
+        });
+        //连接网络
+        Bmob.initialize(getActivity(), "e4472a3896b975ebe594e9669b07774d");
+        BmobQuery<Invite> u = new BmobQuery<>();
+        u.findObjects(getActivity(), new FindListener<Invite>() {
+            @Override
+            public void onSuccess(List<Invite> list) {
+
+                inviteList = list;
+                indexAdapter = new IndexAdapter(getActivity(), inviteList);
+                Log.i("ggg","lkllllll");
+                listView.setAdapter(indexAdapter);
+            }
+            @Override
+            public void onError(int i, String s) {
+                Log.i("cha", "onError brand数据库错误" + i + s);
+            }
+        });
+
+
         bannerviewPager = (ViewPager) view.findViewById(R.id.bannerviewpagers);
         //优化banner
         bannerviewPager.setCurrentItem(Integer.MAX_VALUE / 2);//默认在中间，使用户看不到边界
@@ -61,6 +125,13 @@ public class IndexFragment extends Fragment {
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 Toast.makeText(getActivity(),"你点击了"+position+"",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getActivity(),XiangqingActivity.class);
+                startActivity(intent);
+                for(int i=0;i<=position;i++){
+
+
+                }
             }
         });
         return view;

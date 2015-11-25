@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -24,15 +25,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cn.bmob.v3.BmobUser;
+import droid.Activity01;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
     TextView Ttv;
+    ListView listview;
     LinearLayout xinxis;
     LinearLayout denglu;
     ImageView touxiangs;
+    static int i=0;
     private SlideMenu slideMenu;
     //声明AMapLocationClient类对象
     public AMapLocationClient mLocationClient = null;
@@ -59,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 //        头像点击事件  进入个人资料
-
         touxiangs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,48 +93,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          *
          * */
         Ttv = (TextView) findViewById(R.id.address);
+
         //初始化定位
         mLocationClient = new AMapLocationClient(getApplicationContext());
         //设置定位回调监听
-        Log.i("vv","fffffffff");
-        mLocationClient.setLocationListener(new AMapLocationListener() {
-            @Override
-            public void onLocationChanged(AMapLocation amapLocation) {
-                if (amapLocation != null) {
-                    Log.i("vv","走了");
-                    if (amapLocation.getErrorCode() == 0) {
-                        //定位成功回调信息，设置相关消息
-                        amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
-                        Log.i("vv", amapLocation.getLatitude() + "");
-                        amapLocation.getLatitude();//获取经度
-                        Log.i("vv", amapLocation.getLongitude() + "");
-                        amapLocation.getLongitude();//获取纬度
-                        amapLocation.getAccuracy();//获取精度信息
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        Date date = new Date(amapLocation.getTime());
-                        df.format(date);//定位时间
-                        //  mLocationOption.setNeedAddress(true);
-                        amapLocation.getAddress();//地址，如果option中设置isNeedAddress为false，则没有此结果
-                        amapLocation.getCountry();//国家信息
-                        amapLocation.getProvince();//省信息
-                        amapLocation.getCity();//城市信息
-                        Log.i("vv", amapLocation.getCity() + "");
-                        amapLocation.getDistrict();//城区信息
-                        amapLocation.getRoad();//街道信息
-                        amapLocation.getCityCode();//城市编码
-                        amapLocation.getAdCode();//地区编码
-                        Log.i("AmapError", amapLocation.getDistrict() + df.format(date) + amapLocation.getCity());
-                        String s = amapLocation.getCity();
-                        Ttv.setText(s);
-                    } else {
-                    //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-                      Log.i("AmapError", "location Error, ErrCode:"
-                             + amapLocation.getErrorCode() + ", errInfo:"
-                             + amapLocation.getErrorInfo());
-                      }
+        Log.i("vv", "fffffffff");
+
+        if(i==0) {
+            mLocationClient.setLocationListener(new AMapLocationListener() {
+                @Override
+                public void onLocationChanged(AMapLocation amapLocation) {
+                    if (amapLocation != null) {
+                        Log.i("vv", "走了");
+                        if (amapLocation.getErrorCode() == 0) {
+                            //定位成功回调信息，设置相关消息
+                            amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
+                            Log.i("vv", amapLocation.getLatitude() + "");
+                            amapLocation.getLatitude();//获取经度
+                            Log.i("vv", amapLocation.getLongitude() + "");
+                            amapLocation.getLongitude();//获取纬度
+                            amapLocation.getAccuracy();//获取精度信息
+                            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            Date date = new Date(amapLocation.getTime());
+                            df.format(date);//定位时间
+                            //  mLocationOption.setNeedAddress(true);
+                            amapLocation.getAddress();//地址，如果option中设置isNeedAddress为false，则没有此结果
+                            amapLocation.getCountry();//国家信息
+                            amapLocation.getProvince();//省信息
+                            amapLocation.getCity();//城市信息
+                            Log.i("vv", amapLocation.getCity() + "");
+                            amapLocation.getDistrict();//城区信息
+                            amapLocation.getRoad();//街道信息
+                            amapLocation.getCityCode();//城市编码
+                            amapLocation.getAdCode();//地区编码
+                            Log.i("AmapError", amapLocation.getDistrict() + df.format(date) + amapLocation.getCity());
+                            String s = amapLocation.getCity();
+                            Ttv.setText(s);
+                            mLocationClient.stopLocation();
+                        } else {
+                            //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
+                            Log.i("AmapError", "location Error, ErrCode:"
+                                    + amapLocation.getErrorCode() + ", errInfo:"
+                                    + amapLocation.getErrorInfo());
+                        }
+
+                    }
                 }
-            }
-        });
+
+            });
+        }
+        Intent intent = getIntent();
+        i=intent.getIntExtra("index",1);
+        Ttv.setText(intent.getStringExtra("citys"));
         //初始化定位参数
         mLocationOption = new AMapLocationClientOption();
         //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
@@ -150,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLocationClient.setLocationOption(mLocationOption);
         //启动定位
         mLocationClient.startLocation();
+
 //         seeat.setOnClickListener(this);
      //   fenclass.setOnClickListener(this);
         index.setOnClickListener(this);
@@ -161,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ftt.add(R.id.fragment_parent, inf, "index");
             ftt.commit();
         }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -203,9 +218,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (fm.findFragmentByTag("fenclass")!=null){
                 ftt.show(fm.findFragmentByTag("fenclass"));
             }else{
-              //  FenClassFragment af = new FenClassFragment();
+                //FenClassFragment af = new FenClassFragment();
                 //add(父布局ID，Fragment，Tag);
-             //   ftt.add(R.id.fragment_parent, af, "fenclass");
+                //ftt.add(R.id.fragment_parent, af, "fenclass");
             }
         }else if (id == R.id.seeat){
             if (fm.findFragmentByTag("seeat")!=null){
@@ -219,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ftt.commit();
     }
+
     public void slide_about_button(View v){
         Intent i = new Intent(this,Activity_About.class);
         startActivity(i);
@@ -252,6 +268,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         BmobUser.logOut(this);   //清除缓存用户对象
         BmobUser currentUser = BmobUser.getCurrentUser(this); // 现在的currentUser是null了
         Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+    //dingwei
+    public  void dingwei(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, Activity01.class);
         startActivity(intent);
     }
 }
