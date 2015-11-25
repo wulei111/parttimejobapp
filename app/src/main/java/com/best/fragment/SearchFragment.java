@@ -2,6 +2,7 @@ package com.best.fragment;
 
 import android.app.Activity;
 import android.app.ExpandableListActivity;
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -47,10 +49,20 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
     ListView listView;
     //查询数据,
     List<Invite> invites = new ArrayList<>();
+    //进度条
+    ProgressDialog pd = null;
     //搜索条件,时间，人数，薪资,搜索关键字
-    public String search_time = null,search_people = null,search_money = null,search_main=null;
+    public EditText edit_search;
+    public String search_main=null;
+    public Integer search_time = null,search_people = null,search_money1 = null,search_money2=null;
+    public BmobQuery<Invite> bq_main;
+    public BmobQuery<Invite> bq_time;
+    public BmobQuery<Invite> bq_people;
+    public BmobQuery<Invite> bq_money1;
+    public BmobQuery<Invite> bq_money2;
     //搜索按钮
     Button button_search;
+    TextView txt_jieguo;
 
     //全局布局
     public View view;
@@ -61,13 +73,10 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
     Boolean IsF3 = false;
     LinearLayout zi1,zi2,zi3;//子列表
     //选择时间 单选按钮
-    RadioButton btn_s1,btn_s2,btn_s3,btn_s4,btn_s5,btn_s6;
     RadioGroup grp_s1,grp_s2;
     //选择人数
-    RadioButton btn_r1,btn_r2,btn_r3,btn_r4,btn_r5,btn_r6;
     RadioGroup grp_r1,grp_r2;
     //选择薪资
-    RadioButton btn_x1,btn_x2,btn_x3,btn_x4,btn_x5,btn_x6;
     RadioGroup grp_x1,grp_x2;
     //选中的按钮
     RadioButton radioButton01,radioButton02,radioButton03;
@@ -88,6 +97,8 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         zi2 = (LinearLayout) view.findViewById(R.id.choose_zi02);
         zi3 = (LinearLayout) view.findViewById(R.id.choose_zi03);
         listView = (ListView) view.findViewById(R.id.listview_search);
+        txt_jieguo = (TextView) view.findViewById(R.id.text_jieguo);
+        edit_search = (EditText)view.findViewById(R.id.edit_search);
         //获取单选按钮
         grp_s1 = (RadioGroup) view.findViewById(R.id.radioshijian01);
         grp_s2 = (RadioGroup) view.findViewById(R.id.radioshijian02);
@@ -162,12 +173,11 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                search_main = edit_search.getText().toString();
+                pd = ProgressDialog.show(getContext(),"","玩命搜索中。。。。");
                 searchKu();
-                Toast.makeText(getContext(), "查询了" + invites.size() + "个数据" + search_time + "--" + search_people + "--" + search_money, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "查询了" + invites.size() + "个数据" + search_time + "--" + search_people + "--" + search_money2+search_main, Toast.LENGTH_SHORT).show();
 
-//listview添加
-                searchListAdapter = new SearchListAdapter(getContext(), invites);
-                listView.setAdapter(searchListAdapter);
             }
         });
 
@@ -183,31 +193,74 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
             if (group == grp_s1){
                 grp_s2.clearCheck();
                 //得到选中的按钮
-                radioButton01 = (RadioButton) view.findViewById(checkedId);
-                search_time = radioButton01.getText().toString();
+//                radioButton01 = (RadioButton) view.findViewById(checkedId);
+                //设置搜索条件
+                if (checkedId==grp_s1.getChildAt(0).getId()){
+                    search_time = 1;
+                }else if (checkedId==grp_s1.getChildAt(1).getId()){
+                    search_time = 7;
+                }else if (checkedId==grp_s1.getChildAt(2).getId()){
+                    search_time = 30;
+                }
+
             }else if (group == grp_s2){
                 grp_s1.clearCheck();
                 //1和2是同一个组
-                radioButton01 = (RadioButton) view.findViewById(checkedId);
-                search_time = radioButton01.getText().toString();
+                //设置搜索条件
+                if (checkedId==grp_s2.getChildAt(0).getId()){
+                    search_time = 90;
+                }else if (checkedId==grp_s2.getChildAt(1).getId()){
+                    search_time = 180;
+                }else if (checkedId==grp_s2.getChildAt(2).getId()){
+                    search_time = 181;//以上
+                }
             }
             if (group == grp_r1){
                 grp_r2.clearCheck();
-                radioButton02 = (RadioButton) view.findViewById(checkedId);
-                search_people = radioButton02.getText().toString();
+                //设置搜索条件
+                if (checkedId==grp_r1.getChildAt(0).getId()){
+                    search_people = 10;
+                }else if (checkedId==grp_r1.getChildAt(1).getId()){
+                    search_people = 20;
+                }else if (checkedId==grp_r1.getChildAt(2).getId()){
+                    search_people = 50;
+                }
             }else if (group == grp_r2){
                 grp_r1.clearCheck();
-                radioButton02 = (RadioButton) view.findViewById(checkedId);
-                search_people = radioButton02.getText().toString();
+                //设置搜索条件
+                if (checkedId==grp_r2.getChildAt(0).getId()){
+                    search_people = 100;
+                }else if (checkedId==grp_r2.getChildAt(1).getId()){
+                    search_people = 200;
+                }else if (checkedId==grp_r2.getChildAt(2).getId()){
+                    search_people = 201;//以上
+                }
             }
             if (group == grp_x1){
                 grp_x2.clearCheck();
-                radioButton03 = (RadioButton) view.findViewById(checkedId);
-                search_money = radioButton03.getText().toString();
+                //设置搜索条件
+                if (checkedId==grp_x1.getChildAt(0).getId()){
+                    search_money1 = 1;
+                    search_money2 = 100;
+                }else if (checkedId==grp_x1.getChildAt(1).getId()){
+                    search_money1 = 100;
+                    search_money2 = 200;
+                }else if (checkedId==grp_x1.getChildAt(2).getId()){
+                    search_money1 = 200;
+                    search_money2 = 500;
+                }
             }else if (group == grp_x2){
                 grp_x1.clearCheck();
-                radioButton03 = (RadioButton) view.findViewById(checkedId);
-                search_money = radioButton03.getText().toString();
+                //设置搜索条件
+                if (checkedId==grp_x2.getChildAt(0).getId()){
+                    search_money1 = 500;
+                    search_money2 = 1000;
+                }else if (checkedId==grp_x2.getChildAt(1).getId()){
+                    search_money1 = 1000;
+                    search_money2 = 3000;
+                }else if (checkedId==grp_x2.getChildAt(2).getId()){
+                    search_money1 = 3001;//以上
+                }
             }
             changeGroup = false;
         }
@@ -217,9 +270,50 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
     public void searchKu(){
         //添加数据
         Bmob.initialize(getContext(), "e4472a3896b975ebe594e9669b07774d");
+        //and 并列搜索
+        if (search_main!=null){
+            bq_main = new BmobQuery<Invite>();
+            bq_main.addWhereContains("invite_title",search_main);
+        }
+        if(search_time!=null){
+            bq_time = new BmobQuery<Invite>();
+            if (search_time==181){
+                bq_time.addWhereGreaterThanOrEqualTo("invite_days",search_time);
+            }else{
+                bq_time.addWhereLessThanOrEqualTo("invite_days",search_time);
+            }
+        }
+        if (search_people!=null){
+            bq_people = new BmobQuery<Invite>();
+            if (search_people==201){
+                bq_people.addWhereGreaterThanOrEqualTo("invite_personNum",search_people);
+            }else {
+                bq_people.addWhereLessThanOrEqualTo("invite_personNum",search_people);
+            }
+        }
+        if (search_money1!=null){
+            bq_money1 = new BmobQuery<Invite>();
+            bq_money2 = new BmobQuery<Invite>();
+            if (search_money1==3001){
+                bq_money1.addWhereGreaterThanOrEqualTo("invite_money",search_money1);
+            }else {
+                bq_money1.addWhereGreaterThanOrEqualTo("invite_money",search_money1);
+                bq_money2.addWhereLessThanOrEqualTo("invite_money",search_money2);
+            }
+        }
+
+        //组装成完整的条件
+        List<BmobQuery<Invite>> andQuerys = new ArrayList<BmobQuery<Invite>>();
+        if (search_main!=null) andQuerys.add(bq_main);
+        if (search_time!=null) andQuerys.add(bq_time);
+        if (search_people!=null) andQuerys.add(bq_people);
+        if(search_money1!=null) andQuerys.add(bq_money1);
+        if (search_money2!=null) andQuerys.add(bq_money2);
+
+        //查询and条件
         BmobQuery<Invite> inviteBmobQuery = new BmobQuery<Invite>();
-//        查询playerName叫“比目”的数据
-//        query.addWhereEqualTo("playerName", "比目");
+        inviteBmobQuery.and(andQuerys);
+
 //        返回50条数据，如果不加上这条语句，默认返回10条数据
 //        query.setLimit(50);
         inviteBmobQuery.findObjects(getContext(), new FindListener<Invite>() {
@@ -227,16 +321,27 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
             public void onSuccess(List<Invite> list) {
                 invites.clear();
                 for (Invite b : list) {
-                    invites.add(new Invite(b.getInvite_id(),b.getClassify_id(),b.getUser_id(),b.getInvite_title(),b.getInvite_time(),
-                            b.getInvite_address(),b.getInvite_money(),b.getInvite_personNum(),b.getInvite_context(), b.getInvite_check(),
-                            b.getIncite_urgent(),b.getIncite_sex(),b.getIncite_days(),b.getIncite_addressid()));
+                    invites.add(new Invite(b.getInvite_id(), b.getClassify_id(), b.getUser_id(), b.getInvite_title(), b.getInvite_time(),
+                            b.getInvite_address(), b.getInvite_money(), b.getInvite_personNum(), b.getInvite_context(), b.getInvite_check(),
+                            b.getInvite_urgent(), b.getInvite_sex(), b.getInvite_days(), b.getInvite_addressid(),b.getInvite_danwei()));
                 }
+                //关闭进度条
+                pd.dismiss();
+                //listview添加
+                txt_jieguo.setVisibility(View.VISIBLE);
+                txt_jieguo.setText("爱兼职（全部约"+invites.size()+"个结果）");
+                searchListAdapter = new SearchListAdapter(getContext(), invites);
+                listView.setAdapter(searchListAdapter);
             }
+
             @Override
             public void onError(int i, String s) {
                 Log.i("cha", "onError brand数据库错误" + i + s);
+                pd.dismiss();
+                Toast.makeText(getContext(),"请检查网络连接",Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 

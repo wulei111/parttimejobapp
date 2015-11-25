@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/image_class"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ji"
         android:layout_alignParentRight="true"
-        />
+        android:id="@+id/image_ji" />
 
     <TextView
         android:id="@+id/text_title"
@@ -90,5 +91,22 @@
         android:singleLine="true"
         android:layout_toRightOf="@id/img_qian"
         android:layout_alignTop="@id/img_qian"/>
+    <ImageView
+        android:id="@+id/img_tian2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/text_qian"
+        android:layout_alignTop="@id/text_qian"
+        android:src="@drawable/tianshu"/>
+    <TextView
+        android:id="@+id/text_tianshu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1020天"
+        android:textSize="10sp"
+        android:paddingTop="2dp"
+        android:singleLine="true"
+        android:layout_toRightOf="@id/img_tian2"
+        android:layout_alignTop="@id/img_tian2"/>
 
 </RelativeLayout>
