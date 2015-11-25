@@ -9,11 +9,11 @@ public class Invite extends BmobObject {
     private Integer invite_id;
     private Integer classify_id;
     private Integer user_id;
+    private Integer invite_money;
+    private Integer invite_personNum;
     private String invite_title;
     private String invite_time;
     private String invite_address;
-    private String invite_money;
-    private String invite_personNum;
     private String invite_context;
     private String invite_check;
     private String incite_urgent;
@@ -69,19 +69,19 @@ public class Invite extends BmobObject {
         this.invite_address = invite_address;
     }
 
-    public String getInvite_money() {
+    public Integer getInvite_money() {
         return invite_money;
     }
 
-    public void setInvite_money(String invite_money) {
+    public void setInvite_money(Integer invite_money) {
         this.invite_money = invite_money;
     }
 
-    public String getInvite_personNum() {
+    public Integer getInvite_personNum() {
         return invite_personNum;
     }
 
-    public void setInvite_personNum(String invite_personNum) {
+    public void setInvite_personNum(Integer invite_personNum) {
         this.invite_personNum = invite_personNum;
     }
 
@@ -132,8 +132,8 @@ public class Invite extends BmobObject {
     public void setIncite_addressid(Integer incite_addressid) {
         this.incite_addressid = incite_addressid;
     }
-
-    public Invite(Integer invite_id, Integer classify_id, Integer user_id, String invite_title, String invite_time, String invite_address, String invite_money, String invite_personNum, String invite_context, String invite_check, String incite_urgent, String incite_sex, Integer incite_days, Integer incite_addressid) {
+    public Invite(){}
+     public Invite(Integer invite_id, Integer classify_id, Integer user_id, String invite_title, String invite_time, String invite_address, Integer invite_money, Integer invite_personNum, String invite_context, String invite_check, String incite_urgent, String incite_sex, Integer incite_days, Integer incite_addressid) {
 
         this.invite_id = invite_id;
         this.classify_id = classify_id;
@@ -150,4 +150,5 @@ public class Invite extends BmobObject {
         this.incite_days = incite_days;
         this.incite_addressid = incite_addressid;
     }
+
 }

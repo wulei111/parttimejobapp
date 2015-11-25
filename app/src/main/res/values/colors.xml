@@ -15,4 +15,5 @@
     <color name="yellow_f">#ff9000</color>
     <color name="blue_f">#0033ff</color>
     <color name="gray2">#aaf</color>
+    <color name="text_color">#747b80</color>
 </resources>

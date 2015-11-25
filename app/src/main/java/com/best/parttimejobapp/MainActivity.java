@@ -17,19 +17,23 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.best.bean._User;
 import com.best.fragment.IndexFragment;
 import com.best.fragment.SearchFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.GetListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView toolbartitle;
     String radioGroup_condition;
     android.support.v4.app.FragmentManager fm;
     RadioButton fenclass,index,seeat;
+    public static boolean main_denglu_switch;
     TextView Ttv;
     LinearLayout xinxis;
     LinearLayout denglu;
@@ -48,15 +52,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         xinxis = (LinearLayout) findViewById(R.id.xinxi);
         denglu = (LinearLayout) findViewById(R.id.denglu);
         touxiangs = (ImageView) findViewById(R.id.touxiang);
-
-
         //        判断是否登录
         BmobUser bmobUser = BmobUser.getCurrentUser(this);
         if(bmobUser != null){
             denglu.setVisibility(View.GONE);
+            main_denglu_switch = true;
         }else {
+            main_denglu_switch = false;
+            BmobQuery<_User> query = new BmobQuery<_User>();
+            query.getObject(this, "15163919792", new GetListener<_User>() {
 
-            xinxis.setVisibility(View.GONE);
+                @Override
+                public void onSuccess(_User user) {
+                    TextView name = (TextView) findViewById(R.id.slide_name);
+                    TextView phone = (TextView) findViewById(R.id.slide_phone);
+                    name.setText(user.getUsername());
+                    phone.setText(user.getUser_phone());
+                }
+
+
+                @Override
+                public void onFailure(int code, String arg0) {
+                    // TODO Auto-generated method stub
+                    Log.i("0000dscf","查询失败");
+                }
+
+            });
+//            xinxis.setVisibility(View.GONE);
         }
 
 //        头像点击事件  进入个人资料
@@ -175,7 +197,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void slide_fabu_button(View v){
         if("qiuzhi_condition".equals(radioGroup_condition)){
-
+            Intent  i = new Intent(this,RecruitmentActivity.class);
+            startActivity(i);
         }
         else if("zhaopin_condition".equals(radioGroup_condition)){
 
@@ -221,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else{
               //  FenClassFragment af = new FenClassFragment();
                 //add(父布局ID，Fragment，Tag);
-             //   ftt.add(R.id.fragment_parent, af, "fenclass");
+                //   ftt.add(R.id.fragment_parent, af, "fenclass");
             }
         }else if (id == R.id.seeat){
             if (fm.findFragmentByTag("seeat")!=null){

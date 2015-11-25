@@ -39,6 +39,11 @@
 
         </activity>
         <activity
+            android:name=".RecruitmentActivity"
+            android:theme="@style/StopAll" >
+
+        </activity>
+        <activity
             android:name=".StartActivity"
             android:theme="@style/StopAll" >
 

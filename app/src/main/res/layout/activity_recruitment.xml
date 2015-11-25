@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="我的招聘"
+            android:text="发 布 招 聘"
             android:textSize="26sp"
             android:gravity="center"
             android:textColor="#fff"/>
@@ -155,9 +155,8 @@
             android:layout_toRightOf="@id/release_peopleNum"
             android:layout_marginRight="10dp"
             android:layout_alignTop="@id/release_peopleNum"/>
-        <EditText
-            android:background="@drawable/sousuokuang"
-            android:layout_width="fill_parent"
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/edit_classify"
             android:layout_toRightOf="@id/release_classify"
@@ -173,20 +172,23 @@
             android:layout_marginRight="10dp"
             android:layout_alignTop="@id/release_remark"/>
 
-
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_height="wrap_content">
         <Button
             android:id="@+id/release_recruitment"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="发布"
+            android:onClick="release_recruitment"
             android:layout_alignParentBottom="true"
             android:textColor="#fff"
-            android:layout_marginBottom="50dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+            android:gravity="center"
             android:textSize="26sp"
             android:background="@drawable/button_style01"
             />
+</LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>
