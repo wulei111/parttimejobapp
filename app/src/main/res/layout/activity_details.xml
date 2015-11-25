@@ -6,7 +6,7 @@
     tools:context=".MainActivity">
     <!-- toolbar -->
     <include android:id="@+id/details_toolbar"
-        layout="@layout/activity_toolbar"></include>
+        layout="@layout/activity_toolbars"></include>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent">
@@ -232,7 +232,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:gravity="center">
-                <Button
+                <Button android:id="@+id/detailsbut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我要报名"

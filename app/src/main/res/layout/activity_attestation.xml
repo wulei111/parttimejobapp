@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/qianhui">
     <!-- toolbar-->
-    <include layout="@layout/activity_toolbar"
+    <include layout="@layout/activity_toolbars"
         android:id="@+id/toolbar">
     </include>
     <ScrollView

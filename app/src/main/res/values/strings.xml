@@ -9,4 +9,5 @@
     <string name="title_activity_activlty_about">Activlty_About</string>
     <string name="title_activity_activity__set_up">Activity_SetUp</string>
     <string name="title_activity_dingwei_xiangqing">Dingwei_xiangqing</string>
+    <string name="title_activity_xiangqing">XiangqingActivity</string>
 </resources>

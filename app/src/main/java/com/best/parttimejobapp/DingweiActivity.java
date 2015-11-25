@@ -3,6 +3,7 @@ package com.best.parttimejobapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -26,11 +27,12 @@ public class DingweiActivity extends AppCompatActivity {
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
 //设置是否返回地址信息（默认返回地址信息）
-
+TextView Ttv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dingwei);
+
 //初始化定位
         mLocationClient = new AMapLocationClient(getApplicationContext());
         //设置定位回调监听
@@ -56,18 +58,19 @@ public class DingweiActivity extends AppCompatActivity {
                         amapLocation.getCountry();//国家信息
                         amapLocation.getProvince();//省信息
                         amapLocation.getCity();//城市信息
-                    Log.i("vv",   amapLocation.getCity() + "");
+                    Log.i("vv", amapLocation.getCity() + "");
                         amapLocation.getDistrict();//城区信息
                         amapLocation.getRoad();//街道信息
                         amapLocation.getCityCode();//城市编码
                         amapLocation.getAdCode();//地区编码
+                        // String s = amapLocation.getCity();
                         Log.i("AmapError", amapLocation.getDistrict() + df.format(date)+amapLocation.getCity());
-                    }// else {
+                    } else {
                         //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-                      //  Log.i("AmapError", "location Error, ErrCode:"
-                      //          + amapLocation.getErrorCode() + ", errInfo:"
-                      //          + amapLocation.getErrorInfo());
-                  //  }
+                        Log.i("AmapError", "location Error, ErrCode:"
+                                + amapLocation.getErrorCode() + ", errInfo:"
+                                + amapLocation.getErrorInfo());
+                    }
                }
             }
         });

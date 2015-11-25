@@ -32,12 +32,11 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/qian"/>
+                android:src="@drawable/dizhi"/>
             <TextView android:id="@+id/discoverlistaddress"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="河东汤头"
-                android:textColor="@color/textcolors"
                 android:textSize="14sp"
                 android:gravity="center_vertical"/>
             <ImageView
@@ -49,19 +48,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="100"
-                android:textColor="@color/textcolors"
                 android:textSize="14sp"
                 android:gravity="center_vertical"/>
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/qian"/>
+                android:src="@drawable/tianshu"/>
             <TextView android:id="@+id/discoverlistdays"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="3天"
-                android:textColor="@color/textcolors"
                 android:textSize="14sp"
                 android:gravity="center_vertical"/>
         </LinearLayout>
