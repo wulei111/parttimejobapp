@@ -5,7 +5,7 @@ import cn.bmob.v3.BmobObject;
 /**
  * Created by xing on 2015/11/19.
  */
-public class _User extends BmobObject{
+public class User extends BmobObject{
     private String username;
     private String password;
     private String user_phone;
@@ -106,20 +106,5 @@ public class _User extends BmobObject{
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "_User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", user_phone='" + user_phone + '\'' +
-                ", user_icon='" + user_icon + '\'' +
-                ", user_id=" + user_id +
-                ", user_sex='" + user_sex + '\'' +
-                ", user_age=" + user_age +
-                ", user_qq='" + user_qq + '\'' +
-                ", user_borthday='" + user_borthday + '\'' +
-                ", user_jieshao='" + user_jieshao + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+
 }

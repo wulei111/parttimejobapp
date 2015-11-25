@@ -76,9 +76,11 @@
                 android:background="#fff"
                 android:gravity="center">
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/touxiang"/>
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/touxiang"
+                    android:onClick="genghuan"
+                    android:id="@+id/touxiang"/>
             </RelativeLayout>
             <TextView
                 android:layout_width="fill_parent"
@@ -234,7 +236,6 @@
                         android:layout_alignParentEnd="true" />
                 </RelativeLayout>
                 <!-- 姓名-->
-
 
             </LinearLayout>
             <TextView
