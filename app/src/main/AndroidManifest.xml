@@ -52,14 +52,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".DiscoverActivity"
             android:theme="@style/StopTitle">
         </activity>
         <activity android:name=".DetailsActivity"
             android:theme="@style/StopTitle">
         </activity>
-=======
         <activity
             android:name=".DingweiActivity"
             android:theme="@style/StopTitle">
@@ -79,7 +77,9 @@
             android:theme="@style/StopTitle"></activity>
         <activity android:name=".ValidateLoginActivity"
             android:theme="@style/StopTitle"></activity>
->>>>>>> a0c1997c71512992ef4c77d9584ae026e585944b
+        <activity android:name=".AttestationActivity"
+            android:theme="@style/StopTitle">
+        </activity>
     </application>
 
 </manifest>
