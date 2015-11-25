@@ -430,13 +430,25 @@
         </LinearLayout>
 
     </LinearLayout>
-
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/listview_search"
         android:layout_below="@id/linear_choose"
         android:transcriptMode="alwaysScroll" />
+
+    <TextView
+        android:id="@+id/text_jieguo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="爱兼职（全部约0条结果）"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:textSize="14sp"
+        android:textColor="@color/danhong"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 </FrameLayout>
