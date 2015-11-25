@@ -12,14 +12,15 @@ public class Invite extends BmobObject {
     private String invite_title;
     private String invite_time;
     private String invite_address;
-    private String invite_money;
-    private String invite_personNum;
+    private Integer invite_money;
+    private Integer invite_personNum;
     private String invite_context;
     private String invite_check;
-    private String incite_urgent;
-    private String incite_sex;
-    private Integer incite_days;
-    private Integer incite_addressid;
+    private String invite_urgent;
+    private String invite_sex;
+    private Integer invite_days;
+    private Integer invite_addressid;
+    private String invite_danwei;//新
 
     public Integer getInvite_id() {
         return invite_id;
@@ -69,19 +70,19 @@ public class Invite extends BmobObject {
         this.invite_address = invite_address;
     }
 
-    public String getInvite_money() {
+    public Integer getInvite_money() {
         return invite_money;
     }
 
-    public void setInvite_money(String invite_money) {
+    public void setInvite_money(Integer invite_money) {
         this.invite_money = invite_money;
     }
 
-    public String getInvite_personNum() {
+    public Integer getInvite_personNum() {
         return invite_personNum;
     }
 
-    public void setInvite_personNum(String invite_personNum) {
+    public void setInvite_personNum(Integer invite_personNum) {
         this.invite_personNum = invite_personNum;
     }
 
@@ -101,40 +102,45 @@ public class Invite extends BmobObject {
         this.invite_check = invite_check;
     }
 
-    public String getIncite_urgent() {
-        return incite_urgent;
+    public String getInvite_urgent() {
+        return invite_urgent;
     }
 
-    public void setIncite_urgent(String incite_urgent) {
-        this.incite_urgent = incite_urgent;
+    public void setInvite_urgent(String invite_urgent) {
+        this.invite_urgent = invite_urgent;
     }
 
-    public String getIncite_sex() {
-        return incite_sex;
+    public String getInvite_sex() {
+        return invite_sex;
     }
 
-    public void setIncite_sex(String incite_sex) {
-        this.incite_sex = incite_sex;
+    public void setInvite_sex(String invite_sex) {
+        this.invite_sex = invite_sex;
     }
 
-    public Integer getIncite_days() {
-        return incite_days;
+    public Integer getInvite_days() {
+        return invite_days;
     }
 
-    public void setIncite_days(Integer incite_days) {
-        this.incite_days = incite_days;
+    public void setInvite_days(Integer invite_days) {
+        this.invite_days = invite_days;
     }
 
-    public Integer getIncite_addressid() {
-        return incite_addressid;
+    public Integer getInvite_addressid() {
+        return invite_addressid;
     }
 
-    public void setIncite_addressid(Integer incite_addressid) {
-        this.incite_addressid = incite_addressid;
+    public void setInvite_addressid(Integer invite_addressid) {
+        this.invite_addressid = invite_addressid;
+    }
+    public String getInvite_danwei(){
+        return  invite_danwei;
+    }
+    public void setInvite_danwei(String invite_danwei){
+        this.invite_danwei = invite_danwei;
     }
 
-    public Invite(Integer invite_id, Integer classify_id, Integer user_id, String invite_title, String invite_time, String invite_address, String invite_money, String invite_personNum, String invite_context, String invite_check, String incite_urgent, String incite_sex, Integer incite_days, Integer incite_addressid) {
-
+    public Invite(Integer invite_id, Integer classify_id, Integer user_id, String invite_title, String invite_time, String invite_address, Integer invite_money, Integer invite_personNum, String invite_context, String invite_check, String invite_urgent, String invite_sex, Integer invite_days, Integer invite_addressid,String invite_danwei) {
         this.invite_id = invite_id;
         this.classify_id = classify_id;
         this.user_id = user_id;
@@ -145,9 +151,10 @@ public class Invite extends BmobObject {
         this.invite_personNum = invite_personNum;
         this.invite_context = invite_context;
         this.invite_check = invite_check;
-        this.incite_urgent = incite_urgent;
-        this.incite_sex = incite_sex;
-        this.incite_days = incite_days;
-        this.incite_addressid = incite_addressid;
+        this.invite_urgent = invite_urgent;
+        this.invite_sex = invite_sex;
+        this.invite_days = invite_days;
+        this.invite_addressid = invite_addressid;
+        this.invite_danwei = invite_danwei;
     }
 }
