@@ -2,6 +2,7 @@ package com.best.adapter;
 
 import android.content.Context;
 import android.content.ServiceConnection;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ public class SearchListAdapter extends BaseAdapter{
         TextView txtren = (TextView)convertView.findViewById(R.id.text_renshu);
         TextView txtqian = (TextView)convertView.findViewById(R.id.text_qian);
         TextView tian = (TextView)convertView.findViewById(R.id.text_tianshu);
+
 
         if (invite.getClassify_id()<images.length){
             imageclass.setImageResource(images[invite.getClassify_id()]);

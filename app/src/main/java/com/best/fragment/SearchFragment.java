@@ -176,7 +176,6 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
                 search_main = edit_search.getText().toString();
                 pd = ProgressDialog.show(getContext(),"","玩命搜索中。。。。");
                 searchKu();
-                Toast.makeText(getContext(), "查询了" + invites.size() + "个数据" + search_time + "--" + search_people + "--" + search_money2+search_main, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -327,6 +326,28 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
                 }
                 //关闭进度条
                 pd.dismiss();
+                //点击查询取消单选按钮的选中
+                search_time = null;
+                search_people = null;
+                search_money1 = null;
+                search_money2=null;
+                grp_s1.clearCheck();
+                grp_s2.clearCheck();
+                grp_r1.clearCheck();
+                grp_r2.clearCheck();
+                grp_x1.clearCheck();
+                grp_x2.clearCheck();
+                //点击查询关闭子菜单
+                imageview01.setImageResource(R.drawable.btn_browser);
+                zi1.setVisibility(View.GONE);
+                IsF1 = false;
+                imageview02.setImageResource(R.drawable.btn_browser);
+                zi2.setVisibility(View.GONE);
+                IsF2 = false;
+                imageview03.setImageResource(R.drawable.btn_browser);
+                zi3.setVisibility(View.GONE);
+                IsF3 = false;
+
                 //listview添加
                 txt_jieguo.setVisibility(View.VISIBLE);
                 txt_jieguo.setText("爱兼职（全部约"+invites.size()+"个结果）");
@@ -338,7 +359,7 @@ public class SearchFragment extends Fragment implements RadioGroup.OnCheckedChan
             public void onError(int i, String s) {
                 Log.i("cha", "onError brand数据库错误" + i + s);
                 pd.dismiss();
-                Toast.makeText(getContext(),"请检查网络连接",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"网络不可用，请检查您的网络连接",Toast.LENGTH_SHORT).show();
             }
         });
 
