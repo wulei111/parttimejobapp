@@ -26,7 +26,6 @@ public class RegisteredActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
         Bmob.initialize(this, "e4472a3896b975ebe594e9669b07774d");
-
         username = (EditText) findViewById(R.id.name);
         userphone = (EditText) findViewById(R.id.phone);
         userpassword = (EditText) findViewById(R.id.pass);
@@ -62,8 +61,6 @@ public class RegisteredActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(this,"姓名不能为空",Toast.LENGTH_LONG).show();
                     }
-
-
                 }else{
                     Toast.makeText(this,"密码长度必须大于6位，小于18位",Toast.LENGTH_LONG).show();
                 }

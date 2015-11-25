@@ -10,13 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.best.bean.Myuser;
-
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
-import cn.bmob.v3.listener.SaveListener;
 
 /**
  * 创建时间：2015-11-18
@@ -25,7 +22,7 @@ import cn.bmob.v3.listener.SaveListener;
  * */
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static String network_switch = "e4472a3896b975ebe594e9669b07774d";
     public TextView duanxin;
     public Button denglu;
     public EditText zhanghaos;
@@ -38,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         denglu = (Button) findViewById(R.id.login );
         zhanghaos = (EditText) findViewById(R.id.zhanghao);
         mimas = (EditText) findViewById(R.id.mima);
-        Bmob.initialize(this, "e4472a3896b975ebe594e9669b07774d");
+        Bmob.initialize(this, network_switch);
     }
 
 //    登录
@@ -78,6 +75,11 @@ public class LoginActivity extends AppCompatActivity {
 //    注册
     public void registere(View view){
         Intent intent = new Intent(this,RegisteredActivity.class);
+        startActivity(intent);
+    }
+
+    public void wangji(View v){
+        Intent intent = new Intent(this,ForgetPasswordActivity.class);
         startActivity(intent);
     }
 

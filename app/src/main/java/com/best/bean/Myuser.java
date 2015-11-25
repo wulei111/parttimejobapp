@@ -6,45 +6,23 @@ import cn.bmob.v3.BmobUser;
  * Created by xing on 2015/11/20.
  */
 public class Myuser extends BmobUser{
-    private String user_phone;
-    private String username;
-    private String password;
-    private String email;
+    private String user_qq;
+    private String user_image;
 
-    public String getUser_phone() {
-        return user_phone;
+    public String getUser_image() {
+        return user_image;
     }
 
-    public void setUser_phone(String user_phone) {
-        this.user_phone = user_phone;
+    public void setUser_image(String user_image) {
+        this.user_image = user_image;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
+    public String getUser_qq() {
+        return user_qq;
     }
 
-    @Override
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser_qq(String user_qq) {
+        this.user_qq = user_qq;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

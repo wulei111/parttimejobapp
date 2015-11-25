@@ -1,5 +1,3 @@
-
-
 package com.best.parttimejobapp;
 
 import android.os.Bundle;
@@ -23,6 +21,11 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 import cn.bmob.v3.listener.RequestSMSCodeListener;
+/**
+ * 创建时间：2015-11-23
+ * 创建人：李广兴
+ * 创建内容：ValidateLoginActivity
+ * */
 
 public class ValidateLoginActivity extends AppCompatActivity {
     int i = 10;
@@ -43,52 +46,83 @@ public class ValidateLoginActivity extends AppCompatActivity {
 
     //    发送验证码
     public void fasong(View view){
-        Toast.makeText(this,"denglu",Toast.LENGTH_SHORT).show();
+
         open = true;
-        recLen=60;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (open){
-                    try {
-                        Message msg = new Message();
-                        msg.what = 1;
-                        msg.obj = recLen ;
-                        if(recLen>0) {
-                            Thread.sleep(1000);
-                            hans.sendMessage(msg);
-                        }else{
-                            hans.sendMessage(msg);
-                            open = false;
+        //        判断有效手机号
+        String shoujinum = phones.getText().toString();
+        if(shoujinum.length()==0){
+            Toast.makeText(this,"手机号码不能为空",Toast.LENGTH_LONG).show();
+        }else{
+            if(shoujinum.length()==11){
+                yanzheng();
+                recLen=60;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        while (open){
+                            try {
+                                Message msg = new Message();
+                                msg.what = 1;
+                                msg.obj = recLen ;
+                                if(recLen>0) {
+                                    Thread.sleep(1000);
+                                    hans.sendMessage(msg);
+                                }else{
+                                    hans.sendMessage(msg);
+                                    open = false;
+                                }
+                                recLen--;
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                         }
-                        recLen--;
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
-                }
+                }).start();
+            }else{
+                Toast.makeText(this,"请填写有效手机号码",Toast.LENGTH_LONG).show();
             }
-        }).start();
+        }
+
     }
     private Handler hans = new Handler() {
-
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
-                if((int)msg.obj>0) {
+                if ((int) msg.obj > 0) {
                     txtView.setEnabled(false);
                     txtView.setText(String.valueOf(msg.obj + "s后重新发送"));
-                }else {
+                    txtView.setBackgroundResource(R.drawable.morens);
+                } else {
                     txtView.setEnabled(true);
                     txtView.setText("发送验证码");
+                    txtView.setBackgroundResource(R.drawable.anniu01);
+                    yanzheng();
+
                 }
             }
             super.handleMessage(msg);
         }
     };
+    //    发送验证码
+    public void yanzheng(){
+        BmobSMS.requestSMSCode(this, "17853925788", "手机登录模板", new RequestSMSCodeListener() {
+
+            @Override
+            public void done(Integer integer, BmobException e) {
+                if (e == null) {//验证码发送成功
+                    Log.i("smile", "短信id：" + integer);//用于后续的查询本次短信发送状态
+                } else {
+                    Log.i("smile", "短信id：" + integer);//用于后续的查询本次短信发送状态
+                }
+            }
+        });
+
+    }
 
     //    登录
     public void denglu(View view){
-        String yanshangma = yanzheng.getText().toString();
+        final String yanshangma = yanzheng.getText().toString();
         String shoujinum = phones.getText().toString();
         BmobUser.loginBySMSCode(this, shoujinum, yanshangma, new LogInListener<Object>() {
 
@@ -98,14 +132,23 @@ public class ValidateLoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(ValidateLoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Log.i("asd",e+"");
+                    if (yanshangma.length() == 0) {
+                        nonull();
+                    }else{
+                        cuowu();
+                    }
+
                 }
             }
 
         });
 
     }
-
-
+    public void nonull(){
+        Toast.makeText(this,"验证码不能为空",Toast.LENGTH_LONG).show();
+    }
+    public void cuowu(){
+        Toast.makeText(this,"验证码输入错误",Toast.LENGTH_LONG).show();
+    }
 
 }
