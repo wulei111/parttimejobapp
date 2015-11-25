@@ -48,6 +48,7 @@
                 android:textSize="18sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical"
+                android:onClick="zhuce"
                 />
         </LinearLayout>
         <!--toolbar-->
